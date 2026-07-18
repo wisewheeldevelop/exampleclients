@@ -1,11 +1,15 @@
-# macOS
-.DS_Store
+# ============================================================
+#  YellowBurger / WiseWheel Automate — repo ignore rules
+#  Keep the repo to what the live sites actually need.
+# ============================================================
 
-# Windows
+# ---------- OS ----------
+.DS_Store
+._*
 Thumbs.db
 desktop.ini
 
-# IDEs and Editors
+# ---------- IDEs & editors ----------
 .vscode/
 .idea/
 .mcp.json
@@ -15,21 +19,61 @@ desktop.ini
 *.sln
 *.sw?
 
-# Node
+# ---------- Node ----------
 node_modules/
-npm-debug.log
-yarn-error.log
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+
+# ---------- Environment ----------
+.env
+.env.*
+
+# ---------- Logs ----------
+logs/
+*.log
+
+# ============================================================
+#  SOURCE MEDIA — not needed for the live sites
+#  (frames are already extracted into /seq and /frames)
+# ============================================================
+
+# raw source videos
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi
+
+# raw AI exports (spaces/parens names) — processed versions are committed
+ChatGPT Image*
+*_raw.*
+*-raw.*
+raw-*.png
+
+# heavy unused PNG originals (the sites use the .jpg web versions)
+assets/dish-laffa.png
+assets/dish-plate.png
+assets/mezze.png
+assets/pita-hand.png
+assets/spit-closeup.png
+
+# ---------- Build / dev scripts ----------
+build_video.py
+*.pyc
+__pycache__/
+
+# ---------- Dev scratch: previews & screenshots ----------
+_*.html
+_*.png
+_chk/
+_chk*
+_test/
+_sections.html
+
+# ---------- Claude / agents ----------
+.agents/
+
+# ---------- Custom ----------
+git_config.txt

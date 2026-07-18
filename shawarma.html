@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>לֶהָבָה · שווארמה ישראלית</title>
+  <meta name="description" content="לֶהָבָה — שווארמה ישראלית אמיתית. נצלית על האש הפתוחה, מתובלת 12 שעות, נחתכת טרייה בכל הזמנה." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__badge">
+        <img src="assets/logo.png" alt="לֶהָבָה" />
+      </div>
+      <div class="preloader__word">לֶהָבָה</div>
+      <div class="preloader__bar"><span id="preloaderFill"></span></div>
+      <div class="preloader__pct"><span id="preloaderPct">0</span>%</div>
+      <div class="preloader__hint">מחממים את השיפוד…</div>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__wrap">
+      <a href="#top" class="nav__brand">
+        <span class="nav__badge"><img src="assets/logo.png" alt="" /></span>
+        <span class="nav__word">לֶהָבָה</span>
+      </a>
+      <nav class="nav__links">
+        <a href="#menu">התפריט</a>
+        <a href="#story">הסיפור</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#branches">סניפים</a>
+      </nav>
+      <a href="#order" class="btn btn--sm nav__cta">הזמנת משלוח</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO — SCROLL SEQUENCE ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__sticky">
+        <canvas class="hero__canvas" id="sequence"></canvas>
+        <div class="hero__grain"></div>
+        <div class="hero__vignette"></div>
+
+        <!-- overlay captions synced to scroll -->
+        <div class="cap" data-cap="0">
+          <div class="cap__eyebrow">שווארמה ישראלית · מ־2011</div>
+          <h1 class="cap__title">לֶהָבָה</h1>
+          <p class="cap__sub">השווארמה שכולם מדברים עליה.</p>
+          <div class="cap__scroll">
+            <span>גלול כדי לראות את הקסם</span>
+            <span class="cap__chev">⌄</span>
+          </div>
+        </div>
+
+        <div class="cap cap--split" data-cap="1">
+          <h2 class="cap__big">12&nbsp;שעות<br><em>של תיבול.</em></h2>
+          <p class="cap__note">תערובת של 11 תבלינים. מרינדה שנחה לילה שלם — עד שכל נתח סופג טעם.</p>
+        </div>
+
+        <div class="cap cap--split cap--right" data-cap="2">
+          <h2 class="cap__big">נצלית<br><em>על האש.</em></h2>
+          <p class="cap__note">שכבה על שכבה, מסתובבת מול הלהבה — עד לקצוות הפריכים שכולם רבים עליהם.</p>
+        </div>
+
+        <div class="cap" data-cap="3">
+          <h2 class="cap__title cap__title--sm">מוכנה. בשבילך.</h2>
+          <p class="cap__sub">נחתכת טרייה ברגע שהזמנת.</p>
+          <a href="#menu" class="btn">לתפריט המלא</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement reveal">
+      <p>
+        אנחנו לא ממהרים. <span class="hl">כי טעם אמיתי לוקח זמן.</span>
+        כל שיפוד נבנה ביד, מתובל בערב הקודם, ונצלה לאט על אש פתוחה —
+        בדיוק כמו שהיה בשוק, לפני שכולם התחילו לקצר דרכים.
+      </p>
+    </section>
+
+    <!-- ============ MENU ============ -->
+    <section class="menu" id="menu">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">התפריט</span>
+        <h2 class="section-head__title">מה שמים בצלחת</h2>
+        <p class="section-head__lead">מנות שנבנו סביב הבשר. שום דבר מיותר.</p>
+      </div>
+
+      <div class="menu__grid">
+        <article class="dish reveal">
+          <div class="dish__media"><img src="assets/dish-laffa.jpg" alt="שווארמה בלאפה" /></div>
+          <div class="dish__body">
+            <div class="dish__row">
+              <h3>שווארמה בלאפה</h3>
+              <span class="dish__price">₪52</span>
+            </div>
+            <p>לאפה עבודת יד, חומוס, טחינה גולמית, חמוצים וסלט קצוץ — עטופה חם.</p>
+            <span class="dish__tag">הכי נמכר</span>
+          </div>
+        </article>
+
+        <article class="dish reveal">
+          <div class="dish__media"><img src="assets/dish-plate.jpg" alt="מנת צלחת" /></div>
+          <div class="dish__body">
+            <div class="dish__row">
+              <h3>מנת צלחת</h3>
+              <span class="dish__price">₪68</span>
+            </div>
+            <p>בשר נדיב, צ'יפס טרי, חומוס, טחינה, סלט ישראלי ומגוון חמוצים.</p>
+            <span class="dish__tag">מנה מלאה</span>
+          </div>
+        </article>
+
+        <article class="dish reveal">
+          <div class="dish__media"><img src="assets/pita-hand.jpg" alt="שווארמה בפיתה" /></div>
+          <div class="dish__body">
+            <div class="dish__row">
+              <h3>שווארמה בפיתה</h3>
+              <span class="dish__price">₪44</span>
+            </div>
+            <p>פיתה תימנית, בשר, צ'יפס בפנים, טחינה וחריף — הקלאסיקה של הדוכן.</p>
+            <span class="dish__tag">סטריט פוד</span>
+          </div>
+        </article>
+
+        <article class="dish reveal">
+          <div class="dish__media"><img src="assets/mezze.jpg" alt="מגש מזה" /></div>
+          <div class="dish__body">
+            <div class="dish__row">
+              <h3>מגש מֶזֶה</h3>
+              <span class="dish__price">₪120</span>
+            </div>
+            <p>חומוס, טחינה, זחוג, חמוצים, זיתים, סלטים ופיתות — לשולחן שלם.</p>
+            <span class="dish__tag">לשיתוף</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ STORY — full bleed ============ -->
+    <section class="story" id="story">
+      <div class="story__bg" style="background-image:url('assets/spit-closeup.jpg')"></div>
+      <div class="story__scrim"></div>
+      <div class="story__content reveal">
+        <span class="section-head__eyebrow">הסיפור</span>
+        <h2>הכל מתחיל בשיפוד</h2>
+        <p>
+          התחלנו בדוכן קטן בשוק, עם מתכון אחד ותנור פחמים אחד.
+          היום יש לנו כמה סניפים — אבל השיפוד עדיין נבנה ביד, כל בוקר,
+          מבשר טרי שמעולם לא ראה מקפיא.
+        </p>
+        <div class="story__stats">
+          <div><strong>11</strong><span>תבלינים</span></div>
+          <div><strong>12ש׳</strong><span>מרינדה</span></div>
+          <div><strong>0</strong><span>הקפאה</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery" id="gallery">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">גלריה</span>
+        <h2 class="section-head__title">רגע לפני הביס</h2>
+      </div>
+      <div class="gallery__grid">
+        <figure class="reveal g-tall"><img src="assets/pita-hand.jpg" alt="" /></figure>
+        <figure class="reveal"><img src="assets/dish-laffa.jpg" alt="" /></figure>
+        <figure class="reveal"><img src="assets/mezze.jpg" alt="" /></figure>
+        <figure class="reveal g-wide"><img src="assets/dish-plate.jpg" alt="" /></figure>
+        <figure class="reveal"><img src="assets/spit-closeup.jpg" alt="" /></figure>
+      </div>
+    </section>
+
+    <!-- ============ ORDER / CTA ============ -->
+    <section class="order" id="order">
+      <div class="order__card reveal">
+        <span class="section-head__eyebrow">הזמנה</span>
+        <h2>רעבים כבר עכשיו?</h2>
+        <p>משלוח חם עד הבית או איסוף מהיר מהסניף. 30 דקות, לא יותר.</p>
+        <div class="order__actions">
+          <a href="#" class="btn btn--lg">הזמנת משלוח</a>
+          <a href="#branches" class="btn btn--ghost btn--lg">איסוף עצמי</a>
+        </div>
+        <div class="order__phone">או בטלפון: <a href="tel:*8888">‎*8888</a></div>
+      </div>
+    </section>
+
+    <!-- ============ BRANCHES ============ -->
+    <section class="branches" id="branches">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">סניפים</span>
+        <h2 class="section-head__title">איפה תמצאו אותנו</h2>
+      </div>
+      <div class="branches__grid">
+        <div class="branch reveal">
+          <h3>תל אביב · שוק הכרמל</h3>
+          <p>הכרמל 11, תל אביב־יפו</p>
+          <p class="branch__hours">א׳–ה׳ 11:00–23:00 · ו׳ 09:00–16:00</p>
+        </div>
+        <div class="branch reveal">
+          <h3>ירושלים · מחנה יהודה</h3>
+          <p>עץ החיים 4, ירושלים</p>
+          <p class="branch__hours">א׳–ה׳ 11:00–22:00 · ו׳ 09:00–15:00</p>
+        </div>
+        <div class="branch reveal">
+          <h3>חיפה · הדר</h3>
+          <p>החלוץ 33, חיפה</p>
+          <p class="branch__hours">א׳–ה׳ 11:00–23:00 · שבת 19:00–24:00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__wrap">
+      <div class="footer__brand">
+        <span class="nav__badge"><img src="assets/logo.png" alt="" /></span>
+        <span class="nav__word">לֶהָבָה</span>
+      </div>
+      <p class="footer__tag">שווארמה ישראלית אמיתית · נצלית על האש</p>
+      <div class="footer__links">
+        <a href="#menu">תפריט</a>
+        <a href="#story">הסיפור</a>
+        <a href="#branches">סניפים</a>
+        <a href="#order">הזמנה</a>
+      </div>
+      <div class="footer__legal">© 2026 לֶהָבָה. כל הזכויות שמורות.</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

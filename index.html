@@ -1,247 +1,258 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>לֶהָבָה · שווארמה ישראלית</title>
-  <meta name="description" content="לֶהָבָה — שווארמה ישראלית אמיתית. נצלית על האש הפתוחה, מתובלת 12 שעות, נחתכת טרייה בכל הזמנה." />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>WiseWheel Automate · אולפן דפי נחיתה שממירים</title>
+<meta name="description" content="אולפן WiseWheel Automate — דפי נחיתה חווייתיים שממירים, בטכנולוגיה המתקדמת של 2026 ובעיצוב בהשראת Apple. מהירים, סוחפים ומדויקים לכל מסך." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237C8CFF'/><stop offset='.5' stop-color='%23C86BFF'/><stop offset='1' stop-color='%23FF8FB0'/></linearGradient></defs><circle cx='32' cy='32' r='26' fill='none' stroke='url(%23g)' stroke-width='6'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink:'#05060A', ink2:'#0A0C14', panel:'rgba(255,255,255,.045)', cream:'#EDEFF7', dim:'#99A0B6' },
+    fontFamily: { display:['Rubik','system-ui','sans-serif'], body:['Heebo','system-ui','sans-serif'], grotesk:['"Space Grotesk"','system-ui','sans-serif'] },
+  }}}
+</script>
+<style>
+  html{ scroll-behavior:smooth; }
+  body{ background:#05060A; color:#EDEFF7; }
+  ::selection{ background:#C86BFF; color:#fff; }
+  ::-webkit-scrollbar{ width:11px; } ::-webkit-scrollbar-track{ background:#0A0C14; }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(#7C8CFF,#C86BFF); border-radius:99px; border:2px solid #0A0C14; }
+
+  .aura-grad{ background:linear-gradient(100deg,#8FA2FF 0%,#C86BFF 48%,#FF9DBB 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  /* aurora backdrop */
+  .aurora{ position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .aurora span{ position:absolute; border-radius:50%; filter:blur(90px); opacity:.5; animation:float 18s ease-in-out infinite; }
+  .aurora .a1{ width:46vw; height:46vw; top:-12vw; right:-6vw; background:#5A6BFF; }
+  .aurora .a2{ width:42vw; height:42vw; top:8vw; left:-10vw; background:#C24BFF; animation-delay:-6s; }
+  .aurora .a3{ width:38vw; height:38vw; bottom:-14vw; left:24vw; background:#FF6FA0; animation-delay:-11s; opacity:.4; }
+  @keyframes float{ 0%,100%{ transform:translate(0,0) scale(1); } 50%{ transform:translate(0,-4vw) scale(1.08); } }
+  .grain{ position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.5;
+    background:radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(5,6,10,.7) 100%); }
+
+  .btn{ display:inline-flex; align-items:center; gap:.5em; padding:.95em 1.7em; border-radius:999px; font-weight:700; cursor:pointer;
+    transition:transform .25s cubic-bezier(.22,.61,.36,1), box-shadow .25s, background .25s, border-color .25s; }
+  .btn-primary{ color:#0A0A14; background:linear-gradient(100deg,#AEBBFF,#C86BFF); box-shadow:0 14px 40px -12px rgba(200,107,255,.6); }
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 22px 55px -14px rgba(200,107,255,.8); }
+  .btn-ghost{ color:#EDEFF7; border:1.5px solid rgba(255,255,255,.16); background:rgba(255,255,255,.03); }
+  .btn-ghost:hover{ transform:translateY(-3px); border-color:rgba(255,255,255,.4); background:rgba(255,255,255,.06); }
+
+  /* project card */
+  .work{ position:relative; display:block; border-radius:1.75rem; overflow:hidden; border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.03); transition:transform .5s cubic-bezier(.16,1,.3,1), border-color .4s, box-shadow .5s; }
+  .work:hover{ transform:translateY(-10px); border-color:rgba(255,255,255,.22); box-shadow:0 40px 80px -40px rgba(0,0,0,.9); }
+  .work__img{ aspect-ratio:16/10; overflow:hidden; position:relative; }
+  .work__img img{ width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.16,1,.3,1); }
+  .work:hover .work__img img{ transform:scale(1.06); }
+  .work__img::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(5,6,10,.72), transparent 55%); }
+  .work__go{ opacity:0; transform:translateY(6px); transition:opacity .4s, transform .4s; }
+  .work:hover .work__go{ opacity:1; transform:none; }
+
+  .reveal{ opacity:0; transform:translateY(34px); transition:opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  .rd1{ transition-delay:.08s; } .rd2{ transition-delay:.16s; } .rd3{ transition-delay:.24s; }
+
+  #nav.scrolled{ background:rgba(5,6,10,.7); backdrop-filter:blur(16px); border-bottom-color:rgba(255,255,255,.08); }
+
+  @media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } .aurora span{ animation:none; } html{ scroll-behavior:auto; } }
+</style>
 </head>
-<body>
 
-  <!-- ============ PRELOADER ============ -->
-  <div class="preloader" id="preloader">
-    <div class="preloader__inner">
-      <div class="preloader__badge">
-        <img src="assets/logo.png" alt="לֶהָבָה" />
-      </div>
-      <div class="preloader__word">לֶהָבָה</div>
-      <div class="preloader__bar"><span id="preloaderFill"></span></div>
-      <div class="preloader__pct"><span id="preloaderPct">0</span>%</div>
-      <div class="preloader__hint">מחממים את השיפוד…</div>
-    </div>
-  </div>
+<body class="font-body antialiased overflow-x-hidden">
 
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <div class="nav__wrap">
-      <a href="#top" class="nav__brand">
-        <span class="nav__badge"><img src="assets/logo.png" alt="" /></span>
-        <span class="nav__word">לֶהָבָה</span>
+<div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="grain"></div>
+
+<div class="relative z-10">
+
+  <!-- ===================== NAV ===================== -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 border-b border-transparent transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-6">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-full" style="background:conic-gradient(from 210deg,#8FA2FF,#C86BFF,#FF9DBB,#8FA2FF)"></span>
+        <span class="font-grotesk text-base sm:text-lg tracking-tight whitespace-nowrap"><span class="font-bold">WiseWheel</span><span class="font-light text-dim"> Automate</span></span>
       </a>
-      <nav class="nav__links">
-        <a href="#menu">התפריט</a>
-        <a href="#story">הסיפור</a>
-        <a href="#gallery">גלריה</a>
-        <a href="#branches">סניפים</a>
+      <nav class="hidden md:flex items-center gap-9 text-[15px] font-medium text-dim">
+        <a href="#work" class="hover:text-cream transition-colors">עבודות</a>
+        <a href="#why" class="hover:text-cream transition-colors">למה אנחנו</a>
+        <a href="#contact" class="hover:text-cream transition-colors">צור קשר</a>
       </nav>
-      <a href="#order" class="btn btn--sm nav__cta">הזמנת משלוח</a>
+      <a href="#contact" class="btn btn-primary !py-2.5 !px-5 !text-sm">בואו נדבר</a>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- ============ HERO — SCROLL SEQUENCE ============ -->
-    <section class="hero" id="hero">
-      <div class="hero__sticky">
-        <canvas class="hero__canvas" id="sequence"></canvas>
-        <div class="hero__grain"></div>
-        <div class="hero__vignette"></div>
-
-        <!-- overlay captions synced to scroll -->
-        <div class="cap" data-cap="0">
-          <div class="cap__eyebrow">שווארמה ישראלית · מ־2011</div>
-          <h1 class="cap__title">לֶהָבָה</h1>
-          <p class="cap__sub">השווארמה שכולם מדברים עליה.</p>
-          <div class="cap__scroll">
-            <span>גלול כדי לראות את הקסם</span>
-            <span class="cap__chev">⌄</span>
-          </div>
-        </div>
-
-        <div class="cap cap--split" data-cap="1">
-          <h2 class="cap__big">12&nbsp;שעות<br><em>של תיבול.</em></h2>
-          <p class="cap__note">תערובת של 11 תבלינים. מרינדה שנחה לילה שלם — עד שכל נתח סופג טעם.</p>
-        </div>
-
-        <div class="cap cap--split cap--right" data-cap="2">
-          <h2 class="cap__big">נצלית<br><em>על האש.</em></h2>
-          <p class="cap__note">שכבה על שכבה, מסתובבת מול הלהבה — עד לקצוות הפריכים שכולם רבים עליהם.</p>
-        </div>
-
-        <div class="cap" data-cap="3">
-          <h2 class="cap__title cap__title--sm">מוכנה. בשבילך.</h2>
-          <p class="cap__sub">נחתכת טרייה ברגע שהזמנת.</p>
-          <a href="#menu" class="btn">לתפריט המלא</a>
-        </div>
+    <!-- ===================== HERO ===================== -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-40 sm:pt-52 pb-20 sm:pb-28 text-center">
+      <div class="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/12 bg-white/[.03] text-xs font-medium tracking-[.24em] uppercase text-dim font-grotesk">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#C86BFF]"></span> אולפן דפי נחיתה · 2026
       </div>
-    </section>
-
-    <!-- ============ STATEMENT ============ -->
-    <section class="statement reveal">
-      <p>
-        אנחנו לא ממהרים. <span class="hl">כי טעם אמיתי לוקח זמן.</span>
-        כל שיפוד נבנה ביד, מתובל בערב הקודם, ונצלה לאט על אש פתוחה —
-        בדיוק כמו שהיה בשוק, לפני שכולם התחילו לקצר דרכים.
+      <h1 class="reveal rd1 mt-7 font-display font-extrabold tracking-[-.03em] leading-[.98] text-[clamp(2.8rem,9vw,6.5rem)]">
+        חוויות שגורמות<br><span class="aura-grad">ללקוחות ללחוץ.</span>
+      </h1>
+      <p class="reveal rd2 mt-7 max-w-2xl mx-auto text-[clamp(1.05rem,2.2vw,1.4rem)] font-light text-dim leading-relaxed">
+        אנחנו בונים דפי נחיתה <span class="text-cream font-medium">שממירים</span> — בטכנולוגיה המתקדמת ביותר של 2026,
+        ובעיצוב שנשען על העקרונות של Apple. מהירים, סוחפים, ומדויקים לכל מסך.
       </p>
-    </section>
-
-    <!-- ============ MENU ============ -->
-    <section class="menu" id="menu">
-      <div class="section-head reveal">
-        <span class="section-head__eyebrow">התפריט</span>
-        <h2 class="section-head__title">מה שמים בצלחת</h2>
-        <p class="section-head__lead">מנות שנבנו סביב הבשר. שום דבר מיותר.</p>
+      <div class="reveal rd3 mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="#work" class="btn btn-primary text-lg">לצפייה בעבודות
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost text-lg">בואו נדבר</a>
       </div>
 
-      <div class="menu__grid">
-        <article class="dish reveal">
-          <div class="dish__media"><img src="assets/dish-laffa.jpg" alt="שווארמה בלאפה" /></div>
-          <div class="dish__body">
-            <div class="dish__row">
-              <h3>שווארמה בלאפה</h3>
-              <span class="dish__price">₪52</span>
+      <div class="reveal mt-16 grid grid-cols-3 max-w-lg mx-auto gap-6 text-center">
+        <div><div class="font-grotesk font-bold text-3xl aura-grad">4×</div><div class="mt-1 text-dim text-xs sm:text-sm">מותגים חיים</div></div>
+        <div><div class="font-grotesk font-bold text-3xl aura-grad">100%</div><div class="mt-1 text-dim text-xs sm:text-sm">מותאם למובייל</div></div>
+        <div><div class="font-grotesk font-bold text-3xl aura-grad">2026</div><div class="mt-1 text-dim text-xs sm:text-sm">קדמת הטכנולוגיה</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== WORK ===================== -->
+    <section id="work" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 scroll-mt-24">
+      <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+        <div>
+          <span class="text-xs font-bold tracking-[.28em] uppercase aura-grad font-grotesk">העבודות</span>
+          <h2 class="mt-3 font-display font-extrabold text-4xl md:text-5xl tracking-[-.02em]">בקליק — אתם בפנים.</h2>
+        </div>
+        <p class="text-dim max-w-sm">בחרו מותג וצללו לחוויה המלאה. כל דף נבנה כדי להחזיק את הגולש עד הפעולה.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+
+        <a href="burger/index.html" class="work reveal group">
+          <div class="work__img"><img src="assets/thumbs/burger.jpg" alt="YellowBurger" loading="lazy" /></div>
+          <div class="p-6 sm:p-7 flex items-start justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-full" style="background:rgba(255,213,0,.14); color:#FFD86B">מסעדה · מותג ספורט</span>
+              <h3 class="mt-3 font-display font-bold text-2xl">YellowBurger</h3>
+              <p class="mt-1.5 text-dim text-sm">ההמבורגר של אוהדי מכבי תל אביב</p>
             </div>
-            <p>לאפה עבודת יד, חומוס, טחינה גולמית, חמוצים וסלט קצוץ — עטופה חם.</p>
-            <span class="dish__tag">הכי נמכר</span>
+            <span class="work__go shrink-0 mt-1 w-11 h-11 grid place-items-center rounded-full bg-white/8 border border-white/15">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M13 6l-8 6 8 6"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
 
-        <article class="dish reveal">
-          <div class="dish__media"><img src="assets/dish-plate.jpg" alt="מנת צלחת" /></div>
-          <div class="dish__body">
-            <div class="dish__row">
-              <h3>מנת צלחת</h3>
-              <span class="dish__price">₪68</span>
+        <a href="dj/index.html" class="work reveal rd1 group">
+          <div class="work__img"><img src="assets/thumbs/dj.jpg" alt="PULSE" loading="lazy" /></div>
+          <div class="p-6 sm:p-7 flex items-start justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-full" style="background:rgba(255,45,155,.16); color:#FF7AC0">אירועים · מוזיקה</span>
+              <h3 class="mt-3 font-display font-bold text-2xl">PULSE</h3>
+              <p class="mt-1.5 text-dim text-sm">הדיג׳יי שמפוצץ חתונות ואירועים</p>
             </div>
-            <p>בשר נדיב, צ'יפס טרי, חומוס, טחינה, סלט ישראלי ומגוון חמוצים.</p>
-            <span class="dish__tag">מנה מלאה</span>
+            <span class="work__go shrink-0 mt-1 w-11 h-11 grid place-items-center rounded-full bg-white/8 border border-white/15">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M13 6l-8 6 8 6"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
 
-        <article class="dish reveal">
-          <div class="dish__media"><img src="assets/pita-hand.jpg" alt="שווארמה בפיתה" /></div>
-          <div class="dish__body">
-            <div class="dish__row">
-              <h3>שווארמה בפיתה</h3>
-              <span class="dish__price">₪44</span>
+        <a href="poker/index.html" class="work reveal group">
+          <div class="work__img"><img src="assets/thumbs/poker.jpg" alt="MONARCH" loading="lazy" /></div>
+          <div class="p-6 sm:p-7 flex items-start justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-full" style="background:rgba(212,175,55,.16); color:#E7C86B">יוקרה · נופש</span>
+              <h3 class="mt-3 font-display font-bold text-2xl">MONARCH</h3>
+              <p class="mt-1.5 text-dim text-sm">חופשות קזינו VIP יוקרתיות בחו״ל</p>
             </div>
-            <p>פיתה תימנית, בשר, צ'יפס בפנים, טחינה וחריף — הקלאסיקה של הדוכן.</p>
-            <span class="dish__tag">סטריט פוד</span>
+            <span class="work__go shrink-0 mt-1 w-11 h-11 grid place-items-center rounded-full bg-white/8 border border-white/15">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M13 6l-8 6 8 6"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
 
-        <article class="dish reveal">
-          <div class="dish__media"><img src="assets/mezze.jpg" alt="מגש מזה" /></div>
-          <div class="dish__body">
-            <div class="dish__row">
-              <h3>מגש מֶזֶה</h3>
-              <span class="dish__price">₪120</span>
+        <a href="shawarma.html" class="work reveal rd1 group">
+          <div class="work__img"><img src="assets/thumbs/shawarma.jpg" alt="לֶהָבָה" loading="lazy" /></div>
+          <div class="p-6 sm:p-7 flex items-start justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-full" style="background:rgba(255,140,40,.16); color:#FFB068">מסעדה · אוכל</span>
+              <h3 class="mt-3 font-display font-bold text-2xl">לֶהָבָה</h3>
+              <p class="mt-1.5 text-dim text-sm">שווארמה ישראלית אותנטית על האש</p>
             </div>
-            <p>חומוס, טחינה, זחוג, חמוצים, זיתים, סלטים ופיתות — לשולחן שלם.</p>
-            <span class="dish__tag">לשיתוף</span>
+            <span class="work__go shrink-0 mt-1 w-11 h-11 grid place-items-center rounded-full bg-white/8 border border-white/15">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M13 6l-8 6 8 6"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
+
       </div>
     </section>
 
-    <!-- ============ STORY — full bleed ============ -->
-    <section class="story" id="story">
-      <div class="story__bg" style="background-image:url('assets/spit-closeup.jpg')"></div>
-      <div class="story__scrim"></div>
-      <div class="story__content reveal">
-        <span class="section-head__eyebrow">הסיפור</span>
-        <h2>הכל מתחיל בשיפוד</h2>
-        <p>
-          התחלנו בדוכן קטן בשוק, עם מתכון אחד ותנור פחמים אחד.
-          היום יש לנו כמה סניפים — אבל השיפוד עדיין נבנה ביד, כל בוקר,
-          מבשר טרי שמעולם לא ראה מקפיא.
-        </p>
-        <div class="story__stats">
-          <div><strong>11</strong><span>תבלינים</span></div>
-          <div><strong>12ש׳</strong><span>מרינדה</span></div>
-          <div><strong>0</strong><span>הקפאה</span></div>
+    <!-- ===================== WHY ===================== -->
+    <section id="why" class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 scroll-mt-24">
+      <div class="reveal text-center mb-14">
+        <span class="text-xs font-bold tracking-[.28em] uppercase aura-grad font-grotesk">למה אנחנו</span>
+        <h2 class="mt-3 font-display font-extrabold text-4xl md:text-5xl tracking-[-.02em]">לא סתם יפה. <span class="aura-grad">ממיר.</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="reveal rounded-2xl p-7 bg-white/[.04] border border-white/10">
+          <div class="w-11 h-11 rounded-xl grid place-items-center mb-5" style="background:linear-gradient(135deg,#8FA2FF,#C86BFF)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+          <h3 class="font-bold text-lg">מהירות בזק</h3>
+          <p class="mt-2 text-dim text-sm leading-relaxed">טעינה חלקה וביצועים גבוהים — הגולש לא מחכה, הוא נשאר.</p>
+        </div>
+        <div class="reveal rd1 rounded-2xl p-7 bg-white/[.04] border border-white/10">
+          <div class="w-11 h-11 rounded-xl grid place-items-center mb-5" style="background:linear-gradient(135deg,#8FA2FF,#C86BFF)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg></div>
+          <h3 class="font-bold text-lg">מובייל מושלם</h3>
+          <p class="mt-2 text-dim text-sm leading-relaxed">כל פיקסל מדויק בכל מסך — מהטלפון ועד המסך הגדול.</p>
+        </div>
+        <div class="reveal rd2 rounded-2xl p-7 bg-white/[.04] border border-white/10">
+          <div class="w-11 h-11 rounded-xl grid place-items-center mb-5" style="background:linear-gradient(135deg,#8FA2FF,#C86BFF)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3 class="font-bold text-lg">חוויה שסוחפת</h3>
+          <p class="mt-2 text-dim text-sm leading-relaxed">עיצוב קולנועי בהשראת Apple שמחזיק את העין עד הפעולה.</p>
+        </div>
+        <div class="reveal rd3 rounded-2xl p-7 bg-white/[.04] border border-white/10">
+          <div class="w-11 h-11 rounded-xl grid place-items-center mb-5" style="background:linear-gradient(135deg,#8FA2FF,#C86BFF)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0A0A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+          <h3 class="font-bold text-lg">בנוי להמרה</h3>
+          <p class="mt-2 text-dim text-sm leading-relaxed">כל אלמנט מוביל לפעולה אחת ברורה — יותר לידים, יותר מכירות.</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ GALLERY ============ -->
-    <section class="gallery" id="gallery">
-      <div class="section-head reveal">
-        <span class="section-head__eyebrow">גלריה</span>
-        <h2 class="section-head__title">רגע לפני הביס</h2>
-      </div>
-      <div class="gallery__grid">
-        <figure class="reveal g-tall"><img src="assets/pita-hand.jpg" alt="" /></figure>
-        <figure class="reveal"><img src="assets/dish-laffa.jpg" alt="" /></figure>
-        <figure class="reveal"><img src="assets/mezze.jpg" alt="" /></figure>
-        <figure class="reveal g-wide"><img src="assets/dish-plate.jpg" alt="" /></figure>
-        <figure class="reveal"><img src="assets/spit-closeup.jpg" alt="" /></figure>
-      </div>
-    </section>
-
-    <!-- ============ ORDER / CTA ============ -->
-    <section class="order" id="order">
-      <div class="order__card reveal">
-        <span class="section-head__eyebrow">הזמנה</span>
-        <h2>רעבים כבר עכשיו?</h2>
-        <p>משלוח חם עד הבית או איסוף מהיר מהסניף. 30 דקות, לא יותר.</p>
-        <div class="order__actions">
-          <a href="#" class="btn btn--lg">הזמנת משלוח</a>
-          <a href="#branches" class="btn btn--ghost btn--lg">איסוף עצמי</a>
+    <!-- ===================== CONTACT / CTA ===================== -->
+    <section id="contact" class="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24 scroll-mt-24">
+      <div class="reveal relative overflow-hidden rounded-[2.25rem] border border-white/12 p-10 sm:p-16 text-center" style="background:linear-gradient(160deg,rgba(124,140,255,.14),rgba(200,107,255,.08) 55%,rgba(255,143,176,.10))">
+        <h2 class="font-display font-extrabold text-4xl md:text-6xl tracking-[-.02em] leading-tight">רוצים דף נחיתה<br><span class="aura-grad">שבאמת ממיר?</span></h2>
+        <p class="mt-5 text-dim text-lg max-w-xl mx-auto">ספרו לנו על המותג שלכם — ונחזור אליכם עם קונספט. נהפוך את המבקרים ללקוחות.</p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/972522196803" class="btn btn-primary text-lg">שיחת אפיון חינם</a>
+          <a href="mailto:info@wwcrm.co.il" class="btn btn-ghost text-lg">info@wwcrm.co.il</a>
         </div>
-        <div class="order__phone">או בטלפון: <a href="tel:*8888">‎*8888</a></div>
-      </div>
-    </section>
-
-    <!-- ============ BRANCHES ============ -->
-    <section class="branches" id="branches">
-      <div class="section-head reveal">
-        <span class="section-head__eyebrow">סניפים</span>
-        <h2 class="section-head__title">איפה תמצאו אותנו</h2>
-      </div>
-      <div class="branches__grid">
-        <div class="branch reveal">
-          <h3>תל אביב · שוק הכרמל</h3>
-          <p>הכרמל 11, תל אביב־יפו</p>
-          <p class="branch__hours">א׳–ה׳ 11:00–23:00 · ו׳ 09:00–16:00</p>
-        </div>
-        <div class="branch reveal">
-          <h3>ירושלים · מחנה יהודה</h3>
-          <p>עץ החיים 4, ירושלים</p>
-          <p class="branch__hours">א׳–ה׳ 11:00–22:00 · ו׳ 09:00–15:00</p>
-        </div>
-        <div class="branch reveal">
-          <h3>חיפה · הדר</h3>
-          <p>החלוץ 33, חיפה</p>
-          <p class="branch__hours">א׳–ה׳ 11:00–23:00 · שבת 19:00–24:00</p>
-        </div>
+        <div class="mt-6 text-dim">או ישירות: <a href="tel:+972522196803" dir="ltr" class="text-cream font-semibold hover:text-white transition-colors">+972 52-219-6803</a></div>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="footer__wrap">
-      <div class="footer__brand">
-        <span class="nav__badge"><img src="assets/logo.png" alt="" /></span>
-        <span class="nav__word">לֶהָבָה</span>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-white/8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-right">
+      <div class="flex items-center gap-2.5">
+        <span class="w-7 h-7 rounded-full" style="background:conic-gradient(from 210deg,#8FA2FF,#C86BFF,#FF9DBB,#8FA2FF)"></span>
+        <span class="font-grotesk text-base tracking-tight whitespace-nowrap"><span class="font-bold">WiseWheel</span><span class="font-light text-dim"> Automate</span></span>
       </div>
-      <p class="footer__tag">שווארמה ישראלית אמיתית · נצלית על האש</p>
-      <div class="footer__links">
-        <a href="#menu">תפריט</a>
-        <a href="#story">הסיפור</a>
-        <a href="#branches">סניפים</a>
-        <a href="#order">הזמנה</a>
+      <p class="text-dim text-sm">אולפן דפי נחיתה שממירים · עיצוב וטכנולוגיה 2026</p>
+      <div class="flex gap-4 text-dim">
+        <a href="#work" class="hover:text-cream transition-colors text-sm">עבודות</a>
+        <a href="#contact" class="hover:text-cream transition-colors text-sm">צור קשר</a>
       </div>
-      <div class="footer__legal">© 2026 לֶהָבָה. כל הזכויות שמורות.</div>
     </div>
+    <div class="text-center text-xs text-dim/50 pb-8">© 2026 WiseWheel Automate. כל הזכויות שמורות.</div>
   </footer>
+</div>
 
-  <script src="js/app.js"></script>
+<script>
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), { passive:true });
+</script>
 </body>
 </html>

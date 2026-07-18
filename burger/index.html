@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>YellowBurger · ההמבורגר של אוהדי מכבי תל אביב</title>
+<meta name="description" content="YellowBurger — ההמבורגר הרשמי של אוהדי מכבי תל אביב. בשר טרי על האש, גבינה שנמשכת, וכל ביס בצבעי הצהוב־כחול. גללו וראו." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%230A1230' stroke='%23FFD500' stroke-width='3'/><path d='M16 30 C16 21 23 16 32 16 C41 16 48 21 48 30 Z' fill='%23FFD500'/><rect x='16' y='31.5' width='32' height='5' rx='2.5' fill='%238A4A22'/><path d='M18 39 h28 a5 5 0 0 1 -5 5 H23 a5 5 0 0 1 -5 -5 Z' fill='%23FFB43C'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:'#05070F', ink2:'#0B1024', ink3:'#131A36',
+          yellow:'#FFD500', gold:'#FFB400',
+          blue:'#1E5BFF', blueh:'#6E97FF', blued:'#0A34C8',
+          cream:'#EEF1FB', dim:'#98A2C6',
+        },
+        fontFamily: {
+          display:['Rubik','system-ui','sans-serif'],
+          body:['Heebo','system-ui','sans-serif'],
+          grotesk:['"Space Grotesk"','system-ui','sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-ink text-cream font-body antialiased overflow-x-hidden">
+
+<!-- ===================== SVG SPRITE (custom icons) ===================== -->
+<svg width="0" height="0" class="absolute" aria-hidden="true" style="position:absolute">
+  <defs>
+    <linearGradient id="bunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7C56B"/><stop offset="1" stop-color="#E19A33"/></linearGradient>
+    <linearGradient id="cheeseG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD84D"/><stop offset="1" stop-color="#F6AF1E"/></linearGradient>
+  </defs>
+
+  <!-- crest -->
+  <symbol id="yb-crest" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="30" fill="#0A1230"/>
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#FFD500" stroke-width="3"/>
+    <circle cx="32" cy="32" r="24.5" fill="none" stroke="#1E5BFF" stroke-width="1.4" opacity=".7"/>
+    <path d="M16 30 C16 21 23 16 32 16 C41 16 48 21 48 30 Z" fill="#FFD500"/>
+    <circle cx="27" cy="24" r="1.1" fill="#0A1230"/><circle cx="33" cy="22.4" r="1.1" fill="#0A1230"/><circle cx="39" cy="24.2" r="1.1" fill="#0A1230"/>
+    <rect x="16" y="31.5" width="32" height="5" rx="2.5" fill="#8A4A22"/>
+    <path d="M18 39 h28 a5 5 0 0 1 -5 5 H23 a5 5 0 0 1 -5 -5 Z" fill="#FFB43C"/>
+  </symbol>
+
+  <!-- custom burger illustration -->
+  <symbol id="yb-burger" viewBox="0 0 128 108">
+    <g stroke="rgba(255,255,255,.32)" stroke-width="2.6" fill="none" stroke-linecap="round">
+      <path d="M54 12 q-6 -7 0 -14"/><path d="M66 10 q6 -7 0 -14"/><path d="M78 13 q-5 -7 0 -13"/>
+    </g>
+    <path d="M24 92 q40 13 80 0 v-6 q-40 11 -80 0 Z" fill="#E19A33"/>
+    <path d="M24 86 q40 12 80 0 q-40 10 -80 0 Z" fill="url(#bunG)"/>
+    <rect x="24" y="68" width="80" height="17" rx="8" fill="#4E2C13"/>
+    <rect x="24" y="68" width="80" height="8" rx="4" fill="#6A3B1B"/>
+    <path d="M25 64 h78 v4 q-6 8 -12 2 q-6 8 -12 1 q-6 8 -13 2 q-6 8 -12 1 q-6 7 -12 1 q-5 5 -5 -3 Z" fill="url(#cheeseG)"/>
+    <path d="M27 60 q37 -8 74 0 q-37 7 -74 0 Z" fill="#E8462E"/>
+    <path d="M20 51 h88 v3 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 q-5.5 6 -11 1 Z" fill="#6DBE3C"/>
+    <path d="M22 52 q0 -36 42 -36 q42 0 42 36 q-42 11 -84 0 Z" fill="url(#bunG)"/>
+    <g fill="#FCE7B8">
+      <ellipse cx="50" cy="34" rx="2.3" ry="1.3" transform="rotate(-24 50 34)"/>
+      <ellipse cx="64" cy="30" rx="2.3" ry="1.3" transform="rotate(6 64 30)"/>
+      <ellipse cx="78" cy="34" rx="2.3" ry="1.3" transform="rotate(22 78 34)"/>
+      <ellipse cx="58" cy="40" rx="2.3" ry="1.3" transform="rotate(-10 58 40)"/>
+      <ellipse cx="72" cy="40" rx="2.3" ry="1.3" transform="rotate(14 72 40)"/>
+      <ellipse cx="64" cy="24" rx="2.3" ry="1.3"/>
+    </g>
+  </symbol>
+
+  <!-- mini burger icon (for badges / labels) -->
+  <symbol id="yb-burger-mini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 10a7 7 0 0 1 14 0"/><path d="M3 13h18"/><path d="M5 16h14"/>
+    <path d="M5 16v.5a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V16"/><path d="M8.5 7h.01M12 6.4h.01M15.5 7h.01"/>
+  </symbol>
+
+  <!-- custom fries illustration -->
+  <symbol id="yb-fries" viewBox="0 0 128 104">
+    <g fill="#FFCE3A" stroke="#E7A800" stroke-width="1.2">
+      <rect x="43" y="30" width="7" height="42" rx="2" transform="rotate(-18 46 50)"/>
+      <rect x="52" y="20" width="7" height="52" rx="2" transform="rotate(-7 55 46)"/>
+      <rect x="63" y="16" width="7" height="56" rx="2"/>
+      <rect x="74" y="20" width="7" height="52" rx="2" transform="rotate(8 77 46)"/>
+      <rect x="83" y="30" width="7" height="42" rx="2" transform="rotate(17 86 50)"/>
+    </g>
+    <path d="M40 56 h48 l-5 40 a5 5 0 0 1 -5 4 H50 a5 5 0 0 1 -5 -4 Z" fill="#1E5BFF"/>
+    <path d="M37 52 h54 v9 a3 3 0 0 1 -3 3 H40 a3 3 0 0 1 -3 -3 Z" fill="#0A34C8"/>
+    <rect x="56" y="55" width="16" height="7" rx="2" fill="#FFD500"/>
+  </symbol>
+</svg>
+
+<!-- ===================== WAVING SCARF BANNER (Three.js · WebGL2) ===================== -->
+<div class="scarf-banner" id="scarfBanner" role="img" aria-label="צעיף מכבי תל אביב מתנופף">
+  <canvas id="scarfCanvas"></canvas>
+  <div class="scarf-banner__glow"></div>
+</div>
+
+<!-- ===================== PRELOADER ===================== -->
+<div class="preloader" id="preloader">
+  <div class="flex flex-col items-center gap-5 text-center">
+    <svg class="crest floaty w-24 h-24"><use href="#yb-crest"/></svg>
+    <div class="font-grotesk font-bold text-3xl tracking-[.18em] text-white"><span class="text-gradient">YELLOW</span>BURGER</div>
+    <div class="w-56 h-[3px] rounded-full bg-white/15 overflow-hidden"><span id="pFill" class="block h-full w-0" style="background:linear-gradient(90deg,#FFD500,#FFB400,#1E5BFF)"></span></div>
+    <div class="text-sm text-white/70 font-medium"><span id="pPct">0</span>% · צולים לכם המבורגר</div>
+  </div>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header id="nav" class="fixed inset-x-0 z-50 transition-all duration-500 border-b border-transparent">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-3.5 flex items-center justify-between gap-6">
+    <a href="#top" class="flex items-center gap-3">
+      <svg class="crest w-9 h-9 sm:w-10 sm:h-10"><use href="#yb-crest"/></svg>
+      <span class="font-grotesk font-bold text-xl sm:text-2xl tracking-[.14em]"><span class="text-gradient">YELLOW</span>BURGER</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[15px] font-semibold">
+      <a href="#menu" class="nav-link">התפריט</a>
+      <a href="#story" class="nav-link">הסיפור</a>
+      <a href="#gallery" class="nav-link">גלריה</a>
+      <a href="#combos" class="nav-link">קומבו</a>
+      <a href="#reviews" class="nav-link">אוהדים</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#order" class="btn-yolk !py-2.5 !px-5 !text-sm hidden sm:inline-flex">הזמנה עכשיו</a>
+      <button id="burger" class="md:hidden w-10 h-10 grid place-items-center rounded-xl border border-white/20 text-white" aria-label="תפריט">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-ink2/95 backdrop-blur-xl border-t border-white/10">
+    <nav class="flex flex-col px-6 py-4 gap-4 text-cream/85 font-semibold">
+      <a href="#menu">התפריט</a><a href="#story">הסיפור</a><a href="#gallery">גלריה</a><a href="#combos">קומבו</a><a href="#reviews">אוהדים</a>
+      <a href="#order" class="btn-yolk justify-center mt-2">הזמנה עכשיו</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO — DARK · SCROLL SEQUENCE ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__sticky">
+      <canvas class="hero__canvas" id="sequence"></canvas>
+      <div class="hero__tint"></div>
+      <div class="hero__vignette"></div>
+
+      <!-- caption 0 -->
+      <div class="cap cap--hero" data-cap="0">
+        <h1 class="font-grotesk font-extrabold tracking-[-.02em] leading-[.9] text-[clamp(2.7rem,13vw,8rem)]">
+          <span class="block sm:inline g-yellow">YELLOW</span><span class="block sm:inline g-blue">BURGER</span>
+        </h1>
+        <p class="mt-5 text-[clamp(1.05rem,2.2vw,1.5rem)] font-light text-white/85 max-w-xl mx-auto tracking-tight">ההמבורגר של אוהדי מכבי תל אביב — כל ביס <span class="g-yellow font-semibold">ניצחון</span>.</p>
+        <div class="mt-7 flex flex-col items-center gap-1.5 text-[10px] tracking-[.25em] uppercase text-white/60">
+          <span>גללו כדי לבנות אותו</span>
+          <svg class="bob" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- caption 1 -->
+      <div class="cap cap--split" data-cap="1">
+        <h2 class="font-display font-extrabold leading-[.96] tracking-[-.01em] text-[clamp(2.4rem,9vw,7rem)]"><span class="g-blue">בשר טרי,</span><br><span class="g-yellow">נצחון על האש.</span></h2>
+        <p class="mt-5 max-w-md text-[clamp(1rem,1.7vw,1.25rem)] font-light text-white/85">200 גרם בשר בקר טחון טרי, נצרב על הגריל עד לקראמל מושלם. גבינת צ׳דר שנמסה בדיוק ברגע הנכון.</p>
+      </div>
+
+      <!-- caption 2 -->
+      <div class="cap cap--split cap--right" data-cap="2">
+        <h2 class="font-display font-extrabold leading-[.96] tracking-[-.01em] text-[clamp(2.4rem,9vw,7rem)]"><span class="g-blue">מסתובב.</span><br><span class="g-yellow">מהביל. מושלם.</span></h2>
+        <p class="mt-5 max-w-md text-[clamp(1rem,1.7vw,1.25rem)] font-light text-white/85">לחמנייה זהובה עם שומשום, עגבנייה וחסה פריכה. כל זווית מנצחת — בדיוק כמו הקבוצה שאנחנו אוהבים.</p>
+      </div>
+
+      <!-- caption 3 -->
+      <div class="cap" data-cap="3">
+        <h2 class="font-display font-extrabold text-[clamp(2.2rem,8vw,5.5rem)] leading-[1.02] tracking-[-.01em]"><span class="g-blue">רעבים</span> <span class="g-yellow">לניצחון?</span></h2>
+        <p class="mt-4 text-lg text-white/80 font-light">הזמינו עכשיו — או מצאו את הסניף הקרוב אליכם.</p>
+        <a href="#order" class="btn-yolk mt-8">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          להזמנה מהירה
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe relative z-10"></div>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="relative z-10 bg-ink border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-14 sm:py-16 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 text-center">
+      <div class="reveal"><div class="font-grotesk font-black text-4xl sm:text-5xl text-gradient"><span data-count="18">0</span></div><div class="mt-2 text-dim text-sm">סניפים בארץ</div></div>
+      <div class="reveal reveal-delay-1"><div class="font-grotesk font-black text-4xl sm:text-5xl text-blue-grad"><span data-count="200" data-suffix="ג׳">0</span></div><div class="mt-2 text-dim text-sm">בשר טרי במנה</div></div>
+      <div class="reveal reveal-delay-2"><div class="font-grotesk font-black text-4xl sm:text-5xl text-gradient"><span data-count="4.9" data-suffix="★">0</span></div><div class="mt-2 text-dim text-sm">דירוג אוהדים</div></div>
+      <div class="reveal reveal-delay-3"><div class="font-grotesk font-black text-4xl sm:text-5xl text-blue-grad"><span data-count="100" data-suffix="%">0</span></div><div class="mt-2 text-dim text-sm">צהוב־כחול</div></div>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <section class="relative z-10 bg-ink2 py-5 sm:py-6 border-b border-white/5 marquee">
+    <div class="marquee__track font-display font-black text-2xl md:text-3xl text-white/[.08] uppercase tracking-widest">
+      <span>בשר טרי • גבינה נמשכת • צ׳יפס זהוב • משלוחים חמים • צהוב־כחול • יום משחק • YELLOWBURGER • בשר טרי • גבינה נמשכת • צ׳יפס זהוב • משלוחים חמים •</span>
+      <span>בשר טרי • גבינה נמשכת • צ׳יפס זהוב • משלוחים חמים • צהוב־כחול • יום משחק • YELLOWBURGER • בשר טרי • גבינה נמשכת • צ׳יפס זהוב • משלוחים חמים •</span>
+    </div>
+  </section>
+
+  <!-- ===================== MENU — custom SVG burgers ===================== -->
+  <section id="menu" class="relative z-10 bg-ink py-20 sm:py-28 md:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-12 sm:mb-16 reveal">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">התפריט</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl">ההרכב <span class="text-gradient">המנצח</span></h2>
+        <p class="mt-4 text-dim text-base sm:text-lg max-w-2xl mx-auto">חמישה המבורגרים, קו התקפה אחד. כל אחד עם אישיות משלו — בדיוק כמו ההרכב על המגרש.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+        <article class="reveal card group overflow-hidden">
+          <div class="relative overflow-hidden aspect-[4/3] bg-ink3">
+            <img src="images/shot-classic.jpg" alt="הקלאסי הצהוב" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-yellow text-ink"><svg class="w-3.5 h-3.5"><use href="#yb-burger-mini"/></svg>קלאסי</span>
+          </div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">הקלאסי הצהוב</h3><span class="font-grotesk font-black text-yellow text-xl">₪52</span></div><p class="mt-3 text-dim text-sm leading-relaxed">בשר 200ג׳, צ׳דר כפול, חסה, עגבנייה ורוטב הבית הסודי בלחמנייה זהובה.</p></div>
+        </article>
+
+        <article class="reveal reveal-delay-1 card card--blue group overflow-hidden">
+          <div class="relative overflow-hidden aspect-[4/3] bg-ink3">
+            <img src="images/shot-stack.jpg" alt="הדאבל דרבי" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-blue text-white"><svg class="w-3.5 h-3.5"><use href="#yb-burger-mini"/></svg>דאבל</span>
+          </div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">הדאבל דרבי</h3><span class="font-grotesk font-black text-yellow text-xl">₪68</span></div><p class="mt-3 text-dim text-sm leading-relaxed">שתי קציצות, גבינה כפולה נמשכת, בצל מקורמל ובייקון פריך — לרעבים באמת.</p></div>
+        </article>
+
+        <article class="reveal reveal-delay-2 card group overflow-hidden">
+          <div class="relative overflow-hidden aspect-[4/3] bg-ink3">
+            <img src="images/shot-cheesepull.jpg" alt="האש של האוהד" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-yellow text-ink"><svg class="w-3.5 h-3.5"><use href="#yb-burger-mini"/></svg>חריף</span>
+          </div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">האש של האוהד</h3><span class="font-grotesk font-black text-yellow text-xl">₪58</span></div><p class="mt-3 text-dim text-sm leading-relaxed">חלפיניו, רוטב צ׳יפוטלה חריף וצ׳דר מעושן. לא לבעלי לב חלש.</p></div>
+        </article>
+
+        <article class="reveal card card--blue group overflow-hidden">
+          <div class="relative overflow-hidden aspect-[4/3] bg-ink3">
+            <img src="images/shot-cut.jpg" alt="חתך האלוף" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-blue text-white"><svg class="w-3.5 h-3.5"><use href="#yb-burger-mini"/></svg>עסיסי</span>
+          </div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">חתך האלוף</h3><span class="font-grotesk font-black text-yellow text-xl">₪64</span></div><p class="mt-3 text-dim text-sm leading-relaxed">מדיום עסיסי בדיוק כמו שאוהבים, גבינה זולגת ולחמנייה קלויה על האש.</p></div>
+        </article>
+
+        <article class="reveal reveal-delay-1 card group overflow-hidden">
+          <div class="relative overflow-hidden aspect-[4/3] bg-ink3">
+            <img src="images/shot-combo.jpg" alt="מלך היציע" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <span class="absolute top-4 right-4 inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-yellow text-ink"><svg class="w-3.5 h-3.5"><use href="#yb-burger-mini"/></svg>ענק</span>
+          </div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">מלך היציע</h3><span class="font-grotesk font-black text-yellow text-xl">₪72</span></div><p class="mt-3 text-dim text-sm leading-relaxed">המנה הגדולה של הבית — בשר, גבינה, ירקות טריים וצ׳יפס זהוב לצד. ארוחת ניצחון שלמה.</p></div>
+        </article>
+
+        <!-- fries — custom SVG (no photo needed) -->
+        <article class="reveal reveal-delay-2 card group overflow-hidden">
+          <div class="burger-tile burger-tile--blue aspect-[4/3]"><div class="burger-tile__ring"></div><svg><use href="#yb-fries"/></svg><span class="absolute top-4 right-4 text-[11px] font-bold px-3 py-1 rounded-full bg-yellow text-ink">תוספת</span></div>
+          <div class="p-6"><div class="flex items-center justify-between gap-3"><h3 class="font-display font-bold text-2xl">צ׳יפס ביתי זהוב</h3><span class="font-grotesk font-black text-yellow text-xl">₪22</span></div><p class="mt-3 text-dim text-sm leading-relaxed">חתוך ביד, מטוגן פעמיים, מלח ים. התוספת שאסור לפספס.</p></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORY — dark, big SVG ===================== -->
+  <section id="story" class="relative z-10 bg-ink2 py-20 sm:py-28 overflow-hidden border-y border-white/5">
+    <div class="blob" style="width:420px;height:420px;background:#FFD500;top:-120px;left:-60px;opacity:.18"></div>
+    <div class="blob" style="width:460px;height:460px;background:#1E5BFF;bottom:-160px;right:-80px;opacity:.22"></div>
+    <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal order-2 md:order-1">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">הסיפור שלנו</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl leading-[1.05]">נולד ביציע.<br>הוגש עם <span class="text-blue-grad">גאווה.</span></h2>
+        <p class="mt-6 text-base sm:text-lg text-cream/85 font-light leading-relaxed">YellowBurger התחיל מחלום פשוט של קבוצת אוהדים: המבורגר שמרגיש כמו יום משחק. בשר איכותי, אווירה צהוב־כחול, וטעם שמאחד את כל היציע סביב שולחן אחד. מאז — כל ביס הוא חגיגה.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#order" class="btn-yolk">בואו לנשוך</a>
+          <a href="#menu" class="btn-ghost">לתפריט</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1 order-1 md:order-2 grid place-items-center">
+        <div class="relative w-full max-w-sm aspect-square grid place-items-center">
+          <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 50% 42%, rgba(255,213,0,.3), transparent 62%)"></div>
+          <img src="images/shot-cheesepull.jpg" alt="ההמבורגר של YellowBurger" loading="lazy" class="relative floaty w-11/12 aspect-square object-cover rounded-[2rem]" style="box-shadow:0 34px 80px -34px rgba(255,180,0,.55), 0 0 0 1px rgba(255,213,0,.25)" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY — placeholders for real photos ===================== -->
+  <section id="gallery" class="relative z-10 bg-ink py-20 sm:py-28 md:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-10 sm:mb-14 reveal">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">גלריה</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl">רגעים שאי אפשר <span class="text-gradient">לזייף</span></h2>
+        <p class="mt-4 text-dim">בשר טרי, גבינה נמשכת, וכל ביס בצבעי הצהוב־כחול.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[240px] gap-3 sm:gap-4">
+        <figure class="reveal row-span-2 col-span-2 rounded-3xl overflow-hidden group"><img src="images/gal-1.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+        <figure class="reveal reveal-delay-1 rounded-3xl overflow-hidden group"><img src="images/gal-2.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+        <figure class="reveal reveal-delay-2 row-span-2 rounded-3xl overflow-hidden group"><img src="images/gal-3.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+        <figure class="reveal reveal-delay-1 rounded-3xl overflow-hidden group"><img src="images/gal-4.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+        <figure class="reveal col-span-2 rounded-3xl overflow-hidden group"><img src="images/shot-combo.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+        <figure class="reveal reveal-delay-2 rounded-3xl overflow-hidden group"><img src="images/gal-5.jpg" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY US ===================== -->
+  <section class="relative z-10 bg-ink2 py-20 sm:py-24 border-y border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-12 sm:mb-14 reveal">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">למה אנחנו</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl">כל פרט <span class="text-blue-grad">משחק אליפות</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="reveal flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-yellow/30 transition-colors"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg></span><div><h4 class="font-bold text-lg">בשר טרי כל יום</h4><p class="text-dim text-sm mt-1">נטחן במקום, אף פעם לא קפוא. 200 גרם של טעם אמיתי.</p></div></div>
+        <div class="reveal reveal-delay-1 flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-blueh/40 transition-colors"><span class="ic ic--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg></span><div><h4 class="font-bold text-lg">על האש הפתוחה</h4><p class="text-dim text-sm mt-1">צריבה מושלמת שנועלת את כל העסיסיות פנימה.</p></div></div>
+        <div class="reveal reveal-delay-2 flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-yellow/30 transition-colors"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7Z"/></svg></span><div><h4 class="font-bold text-lg">גבינה שנמשכת</h4><p class="text-dim text-sm mt-1">צ׳דר איכותי שנמס בדיוק ברגע הנכון.</p></div></div>
+        <div class="reveal flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-blueh/40 transition-colors"><span class="ic ic--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span><div><h4 class="font-bold text-lg">משלוח חם ומהיר</h4><p class="text-dim text-sm mt-1">מגיע אליכם חם, עסיסי ובזמן — גם ביום משחק.</p></div></div>
+        <div class="reveal reveal-delay-1 flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-yellow/30 transition-colors"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><div><h4 class="font-bold text-lg">אווירה צהוב־כחול</h4><p class="text-dim text-sm mt-1">כל סניף הוא בית לאוהדים. באים לאכול, נשארים לחגוג.</p></div></div>
+        <div class="reveal reveal-delay-2 flex gap-4 items-start rounded-2xl p-6 bg-white/[.03] border border-white/10 hover:border-blueh/40 transition-colors"><span class="ic ic--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span><div><h4 class="font-bold text-lg">ירקות פריכים</h4><p class="text-dim text-sm mt-1">נחתכים טרי מדי בוקר. פריכות שנשמעת בכל ביס.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMBOS ===================== -->
+  <section id="combos" class="relative z-10 bg-ink py-20 sm:py-28 md:py-32">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-12 sm:mb-16 reveal">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">קומבו</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl">בחרו את <span class="text-gradient">ההרכב</span></h2>
+        <p class="mt-4 text-dim text-base sm:text-lg">מנה בודדת או מגש לכל היציע — יש קומבו לכל רעב.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+        <div class="reveal card p-8 flex flex-col">
+          <h3 class="font-display font-bold text-2xl">קומבו יחיד</h3>
+          <div class="mt-4 font-grotesk font-black text-4xl">₪72<span class="text-base text-dim font-body font-normal"> / מנה</span></div>
+          <ul class="mt-6 space-y-3 text-dim text-sm flex-1"><li>✓ המבורגר לבחירה</li><li>✓ צ׳יפס ביתי זהוב</li><li>✓ שתייה קרה</li><li>✓ רוטב הבית</li></ul>
+          <a href="#order" class="btn-ghost justify-center mt-8">הזמנה</a>
+        </div>
+        <div class="reveal reveal-delay-1 rounded-3xl p-8 relative flex flex-col glow-ring border border-yellow/40" style="background:linear-gradient(180deg,rgba(255,213,0,.13),rgba(11,16,36,.6))">
+          <span class="absolute -top-3 right-8 text-xs font-black px-4 py-1 rounded-full text-ink" style="background:linear-gradient(100deg,#FFE45C,#FFB400)">הכי מבוקש</span>
+          <h3 class="font-display font-bold text-2xl">קומבו הדרבי</h3>
+          <div class="mt-4 font-grotesk font-black text-4xl text-gradient">₪129<span class="text-base text-dim font-body font-normal"> / זוגי</span></div>
+          <ul class="mt-6 space-y-3 text-cream/85 text-sm flex-1"><li>✓ 2 המבורגרים לבחירה</li><li>✓ צ׳יפס גדול לשיתוף</li><li>✓ טבעות בצל</li><li>✓ 2 שתייה קרה</li><li>✓ 2 רטבים מיוחדים</li></ul>
+          <a href="#order" class="btn-yolk justify-center mt-8">הזמנה עכשיו</a>
+        </div>
+        <div class="reveal reveal-delay-2 rounded-3xl p-8 relative flex flex-col border border-blueh/40" style="background:linear-gradient(180deg,rgba(30,91,255,.13),rgba(11,16,36,.6))">
+          <span class="absolute -top-3 right-8 text-xs font-black px-4 py-1 rounded-full text-white" style="background:linear-gradient(100deg,#3D77FF,#0A34C8)">ליום משחק</span>
+          <h3 class="font-display font-bold text-2xl">מגש היציע</h3>
+          <div class="mt-4 font-grotesk font-black text-4xl text-blue-grad">₪349<span class="text-base text-dim font-body font-normal"> / קבוצה</span></div>
+          <ul class="mt-6 space-y-3 text-cream/85 text-sm flex-1"><li>✓ 6 המבורגרים לבחירה</li><li>✓ 2 מגשי צ׳יפס</li><li>✓ טבעות בצל + נאגטס</li><li>✓ 6 שתייה</li><li>✓ מושלם ליום משחק</li></ul>
+          <a href="#order" class="btn-ghost justify-center mt-8">הזמנה</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REVIEWS ===================== -->
+  <section id="reviews" class="relative z-10 bg-ink2 py-20 sm:py-24 border-y border-white/5">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-12 sm:mb-14 reveal">
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">מה אומרים האוהדים</span>
+        <h2 class="mt-4 font-display font-black text-4xl md:text-6xl">היציע <span class="text-gradient">מדבר</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <figure class="reveal rounded-3xl p-7 bg-white/[.03] border border-white/10 hover:border-yellow/25 transition-colors"><div class="text-yellow text-lg">★★★★★</div><blockquote class="mt-4 text-cream/90 leading-relaxed">"ההמבורגר הכי טוב שאכלתי בת״א. משיכת הגבינה הזאת? חלום. באתי לפני משחק ונשארתי אוהד לנצח."</blockquote><figcaption class="mt-5 text-sm text-dim">— רון, אוהד מנוי</figcaption></figure>
+        <figure class="reveal reveal-delay-1 rounded-3xl p-7 bg-white/[.03] border border-white/10 hover:border-yellow/25 transition-colors"><div class="text-yellow text-lg">★★★★★</div><blockquote class="mt-4 text-cream/90 leading-relaxed">"הזמנו מגש היציע ל-8 חברים לפני הדרבי. הגיע חם, מדויק, וכולם ניקו את הצלחת. אלופים."</blockquote><figcaption class="mt-5 text-sm text-dim">— מיכל, ראשון לציון</figcaption></figure>
+        <figure class="reveal reveal-delay-2 rounded-3xl p-7 bg-white/[.03] border border-white/10 hover:border-yellow/25 transition-colors"><div class="text-yellow text-lg">★★★★★</div><blockquote class="mt-4 text-cream/90 leading-relaxed">"האווירה הצהוב־כחול, הבשר הטרי, הצ׳יפס — הכל ברמה אחרת. זה כבר לא אוכל, זה טקס לפני משחק."</blockquote><figcaption class="mt-5 text-sm text-dim">— דניאל, תל אביב</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ORDER ===================== -->
+  <section id="order" class="relative z-10 bg-ink py-20 sm:py-28 md:py-32 overflow-hidden">
+    <div class="blob" style="width:420px;height:420px;background:#FFD500;top:-90px;right:-90px"></div>
+    <div class="blob" style="width:460px;height:460px;background:#1E5BFF;bottom:-120px;left:-80px"></div>
+    <div class="relative max-w-3xl mx-auto px-5 sm:px-6">
+      <div class="rounded-[2rem] p-6 sm:p-10 md:p-12 bg-white/[.04] border border-white/10 backdrop-blur-xl glow-ring reveal">
+        <div class="text-center mb-8">
+          <span class="text-xs font-bold tracking-[.28em] uppercase text-gradient font-grotesk">הזמנה</span>
+          <h2 class="mt-4 font-display font-black text-3xl md:text-5xl">רעבים? <span class="text-gradient">נסגור את זה.</span></h2>
+          <p class="mt-3 text-dim">משאירים פרטים ואנחנו חוזרים אליכם עם ההזמנה — או מזמינים ישירות בוואטסאפ.</p>
+        </div>
+        <form class="grid grid-cols-1 sm:grid-cols-2 gap-4" onsubmit="event.preventDefault(); this.reset(); document.getElementById('formOk').classList.remove('hidden');">
+          <input required placeholder="שם מלא" class="sm:col-span-1 bg-ink2 border border-white/10 rounded-xl px-4 py-3 text-cream placeholder:text-dim focus:border-yellow focus:outline-none transition-colors" />
+          <input required type="tel" placeholder="טלפון" class="sm:col-span-1 bg-ink2 border border-white/10 rounded-xl px-4 py-3 text-cream placeholder:text-dim focus:border-yellow focus:outline-none transition-colors" />
+          <select class="sm:col-span-1 bg-ink2 border border-white/10 rounded-xl px-4 py-3 text-cream focus:border-yellow focus:outline-none transition-colors [color-scheme:dark]"><option>איסוף עצמי</option><option>משלוח</option><option>מגש לאירוע</option></select>
+          <select class="sm:col-span-1 bg-ink2 border border-white/10 rounded-xl px-4 py-3 text-cream focus:border-yellow focus:outline-none transition-colors [color-scheme:dark]"><option>קומבו יחיד</option><option>קומבו הדרבי</option><option>מגש היציע</option><option>מנה בודדת</option></select>
+          <textarea placeholder="פרטי ההזמנה / כתובת (אופציונלי)" rows="3" class="sm:col-span-2 bg-ink2 border border-white/10 rounded-xl px-4 py-3 text-cream placeholder:text-dim focus:border-yellow focus:outline-none transition-colors"></textarea>
+          <button class="btn-yolk sm:col-span-2 justify-center text-lg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>שלחו הזמנה</button>
+          <p id="formOk" class="hidden sm:col-span-2 text-center font-bold text-yellow">תודה! קיבלנו את ההזמנה ונחזור אליכם עוד רגע 💛</p>
+        </form>
+        <div class="mt-6 text-center text-dim text-sm">או ישירות: <a href="tel:0500000000" class="text-gradient font-bold">050-000-0000</a> · <a href="https://wa.me/972500000000" class="text-blue-grad font-bold">וואטסאפ</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<div class="stripe"></div>
+<footer class="relative z-10 bg-ink border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-14 sm:py-16 flex flex-col items-center text-center gap-5">
+    <svg class="crest w-14 h-14"><use href="#yb-crest"/></svg>
+    <div class="font-grotesk font-bold text-3xl tracking-[.14em] text-white"><span class="text-gradient">YELLOW</span>BURGER</div>
+    <p class="text-dim">ההמבורגר של אוהדי מכבי תל אביב · סניפים בכל הארץ</p>
+    <div class="flex gap-6 text-dim">
+      <a href="#menu" class="hover:text-yellow transition-colors">התפריט</a>
+      <a href="#story" class="hover:text-yellow transition-colors">הסיפור</a>
+      <a href="#combos" class="hover:text-yellow transition-colors">קומבו</a>
+      <a href="#order" class="hover:text-yellow transition-colors">הזמנה</a>
+    </div>
+    <div class="flex gap-4 mt-2">
+      <a href="#" aria-label="אינסטגרם" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 text-dim hover:text-yellow hover:border-yellow/50 transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+      <a href="#" aria-label="פייסבוק" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 text-dim hover:text-yellow hover:border-yellow/50 transition-colors"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3l.5-3H14V4.5c0-.9.3-1.5 1.6-1.5H17V.3C16.4.2 15.4 0 14.3 0 11.9 0 10.3 1.5 10.3 4.2V6H7.5v3h2.8v9H14Z"/></svg></a>
+      <a href="#" aria-label="טיקטוק" class="w-10 h-10 grid place-items-center rounded-full border border-white/15 text-dim hover:text-yellow hover:border-yellow/50 transition-colors"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 0h-3.2v14.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V8.1a6.2 6.2 0 1 0 5.2 6.1V7.3a7.4 7.4 0 0 0 4.3 1.4V5.5a4.3 4.3 0 0 1-4.3-4.2V0Z"/></svg></a>
+    </div>
+    <div class="text-xs text-dim/60 mt-4">© 2026 YellowBurger. כל הזכויות שמורות. · לא שיוך רשמי לקבוצת הכדורגל.</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+
+<!-- Three.js (WebGL2) for the waving-scarf banner -->
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="js/scarf.js"></script>
+</body>
+</html>

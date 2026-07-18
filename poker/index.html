@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MONARCH · מונרך — חופשות קזינו יוקרה בחו״ל | טיסה, מלון 5★ וליווי VIP</title>
+<meta name="description" content="חבילות נופש קזינו ברמה אחרת — לימסול, באטומי, בודפשט ומונטנגרו. טיסות ישירות, מלונות 5 כוכבים, ליווי VIP וז׳יטוני כניסה. תכננו את המסע שלכם עם מונרך." />
+<meta name="theme-color" content="#070a0f" />
+<meta property="og:title" content="MONARCH · מונרך — חופשות קזינו יוקרה" />
+<meta property="og:description" content="המשחק מתחיל בהמראה. חבילות קזינו יוקרתיות ליעדים הנחשקים באירופה." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:      { DEFAULT:'#070a0f', 800:'#0b1119', 700:'#0f1722', 600:'#151f2e' },
+          gold:     { DEFAULT:'#d4af37', light:'#f4e4bc', deep:'#b8891f', 300:'#e7cf8f' },
+          emerald:  { felt:'#0e5c43' },
+          ivory:    '#f7f4ec',
+          muted:    '#9aa4b2',
+        },
+        fontFamily: {
+          serif:   ['"Frank Ruhl Libre"','Georgia','serif'],
+          sans:    ['Heebo','system-ui','sans-serif'],
+          display: ['"Cormorant Garamond"','"Frank Ruhl Libre"','serif'],
+        },
+        letterSpacing: { widest2:'0.3em' },
+        maxWidth: { '8xl':'88rem' },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{
+    --gold-grad: linear-gradient(135deg,#f4e4bc 0%,#d4af37 42%,#b8891f 72%,#e7cf8f 100%);
+    --line: rgba(212,175,55,.22);
+  }
+  html{scroll-behavior:smooth}
+  body{background:#070a0f;color:#f7f4ec;font-family:'Heebo',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(212,175,55,.28);color:#fff}
+
+  /* ---- gold text / rules ---- */
+  .text-gold-grad{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hairline{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .eyebrow{font-family:'Cormorant Garamond',serif;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+
+  /* ---- premium film-grain + vignette overlays ---- */
+  .grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---- hero ---- */
+  .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.03)}
+  .hero-scrim{position:absolute;inset:0;background:
+      radial-gradient(120% 80% at 78% 22%,rgba(7,10,15,0) 0%,rgba(7,10,15,.55) 55%,rgba(7,10,15,.92) 100%),
+      linear-gradient(180deg,rgba(7,10,15,.72) 0%,rgba(7,10,15,.28) 30%,rgba(7,10,15,.62) 72%,#070a0f 100%)}
+
+  /* ---- buttons ---- */
+  .btn-gold{position:relative;background:var(--gold-grad);color:#0b0b0b;font-weight:700;border-radius:999px;
+    box-shadow:0 10px 30px -10px rgba(212,175,55,.6),inset 0 0 0 1px rgba(255,255,255,.25);transition:.35s}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(212,175,55,.75)}
+  .btn-ghost{border:1px solid var(--line);border-radius:999px;color:#f7f4ec;transition:.35s;background:rgba(255,255,255,.02)}
+  .btn-ghost:hover{border-color:rgba(212,175,55,.65);background:rgba(212,175,55,.08)}
+
+  /* ---- glass cards ---- */
+  .glass{background:linear-gradient(180deg,rgba(21,31,46,.72),rgba(11,17,25,.72));
+    border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(12px);border-radius:20px}
+  .card-dest{position:relative;border-radius:22px;overflow:hidden;isolation:isolate;border:1px solid rgba(255,255,255,.06)}
+  .card-dest img{transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+  .card-dest:hover img{transform:scale(1.08)}
+  .card-dest .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,15,.05) 0%,rgba(7,10,15,.15) 40%,rgba(7,10,15,.9) 100%)}
+  .price-ring:hover{box-shadow:0 0 0 1px rgba(212,175,55,.5),0 30px 60px -30px rgba(212,175,55,.4)}
+
+  /* ---- gold gilt frame for gallery ---- */
+  .gilt{position:relative}
+  .gilt::before{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:16px;pointer-events:none;
+    box-shadow:inset 0 0 0 4px rgba(7,10,15,.6)}
+
+  /* ---- nav ---- */
+  #nav{transition:background .4s,backdrop-filter .4s,border-color .4s,padding .4s}
+  #nav.scrolled{background:rgba(7,10,15,.82);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.06)}
+
+  /* ---- reveal on scroll ---- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}.reveal[data-d="4"]{transition-delay:.32s}
+
+  /* ---- marquee ---- */
+  .marquee{display:flex;gap:3.5rem;white-space:nowrap;animation:scrollx 34s linear infinite}
+  @keyframes scrollx{to{transform:translateX(50%)}}
+
+  /* ---- shimmering divider dot ---- */
+  .suit{width:26px;height:26px;fill:#d4af37;opacity:.9}
+
+  /* ---- form ---- */
+  .field{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;
+    padding:.85rem 1rem;color:#f7f4ec;transition:.3s;font-family:'Heebo'}
+  .field:focus{outline:none;border-color:rgba(212,175,55,.6);background:rgba(212,175,55,.05)}
+  .field::placeholder{color:#6b7280}
+
+  /* scroll cue */
+  @keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:1}}
+  .cue{animation:bob 2s ease-in-out infinite}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ══════════════ ANNOUNCEMENT BAR ══════════════ -->
+<div class="w-full bg-ink-800 border-b border-white/5 text-center text-[13px] py-2 px-4 text-gold-300 tracking-wide">
+  <span class="opacity-90">✦ עונת חורף 2026 · טיסות ישירות והטבות High-Roller בהזמנה מוקדמת · מקומות מוגבלים ✦</span>
+</div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header id="nav" class="fixed top-[37px] inset-x-0 z-50 border-b border-transparent">
+  <nav class="max-w-8xl mx-auto flex items-center justify-between px-5 sm:px-8 py-4">
+    <!-- logo -->
+    <a href="#top" class="flex items-center gap-3 group">
+      <svg width="38" height="38" viewBox="0 0 48 48" fill="none" aria-hidden="true" class="shrink-0">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f4e4bc"/><stop offset=".5" stop-color="#d4af37"/><stop offset="1" stop-color="#b8891f"/>
+        </linearGradient></defs>
+        <path d="M24 3l3.4 6.9 7.6 1.1-5.5 5.4 1.3 7.6L24 27.5 17.2 31l1.3-7.6L13 18l7.6-1.1z" fill="url(#lg)" opacity=".95"/>
+        <path d="M24 20c-4.5 5-9 7.6-9 12.2 0 2.7 2.1 4.6 4.7 4.6 1.9 0 3.4-1 4.3-2.6.9 1.6 2.4 2.6 4.3 2.6 2.6 0 4.7-1.9 4.7-4.6C33 27.6 28.5 25 24 20z" fill="url(#lg)"/>
+        <rect x="22.6" y="34" width="2.8" height="8" rx="1" fill="url(#lg)"/>
+        <rect x="18" y="41" width="12" height="2.6" rx="1.3" fill="url(#lg)"/>
+      </svg>
+      <span class="leading-none">
+        <span class="block font-display text-2xl tracking-[.22em] text-gold-grad">MONARCH</span>
+        <span class="block text-[11px] tracking-[.42em] text-muted mt-.5">חופשות קזינו</span>
+      </span>
+    </a>
+    <!-- links -->
+    <ul class="hidden lg:flex items-center gap-9 text-[15px] text-ivory/85">
+      <li><a href="#destinations" class="hover:text-gold transition">יעדים</a></li>
+      <li><a href="#packages" class="hover:text-gold transition">חבילות</a></li>
+      <li><a href="#experience" class="hover:text-gold transition">החוויה</a></li>
+      <li><a href="#vip" class="hover:text-gold transition">מועדון VIP</a></li>
+      <li><a href="#faq" class="hover:text-gold transition">שאלות</a></li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <a href="tel:+97230000000" class="hidden sm:flex items-center gap-2 text-sm text-ivory/80 hover:text-gold transition">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        03-000-0000
+      </a>
+      <a href="#quote" class="btn-gold text-sm px-5 py-2.5">קבלת הצעה</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="top" class="relative min-h-[100svh] flex items-end overflow-hidden grain">
+  <video class="hero-media" autoplay muted loop playsinline poster="assets/video/hero-poster.jpg">
+    <source src="assets/video/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim"></div>
+
+  <div class="relative z-10 w-full max-w-8xl mx-auto px-5 sm:px-8 pb-20 sm:pb-28">
+    <p class="eyebrow text-gold text-xs sm:text-sm mb-5 reveal">Monte-Carlo · Limassol · Batumi · Budapest</p>
+    <h1 class="font-serif font-black leading-[1.02] text-[15vw] sm:text-7xl lg:text-8xl reveal" data-d="1">
+      המשחק מתחיל<br><span class="text-gold-grad">בהמראה.</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-lg sm:text-xl text-ivory/85 leading-relaxed reveal" data-d="2">
+      חבילות קזינו יוקרתיות ליעדים הנחשקים באירופה — טיסות ישירות, מלונות 5 כוכבים על קו המים,
+      וליווי VIP מהרגע שאתם ממריאים ועד היד האחרונה.
+    </p>
+    <div class="mt-9 flex flex-wrap items-center gap-4 reveal" data-d="3">
+      <a href="#destinations" class="btn-gold px-8 py-4 text-base">גלו את היעדים</a>
+      <a href="#quote" class="btn-ghost px-8 py-4 text-base">בקשת הצעה אישית</a>
+    </div>
+    <!-- trust chips -->
+    <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-ivory/75 reveal" data-d="4">
+      <span class="flex items-center gap-2"><svg class="suit" viewBox="0 0 24 24"><path d="M12 2C9 6 4 8 4 13a4 4 0 0 0 7 2 4 4 0 0 0 7-2c0-5-5-7-6-11z"/></svg> טיסות ישירות</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2l2.9 6 6.6.6-5 4.4 1.5 6.4L12 16.9 6 19.4l1.5-6.4-5-4.4 6.6-.6z"/></svg> מלונות 5 כוכבים</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.6"><path d="M12 2l7 3v6c0 5-3 8-7 11-4-3-7-6-7-11V5z"/></svg> ליווי VIP 24/7</span>
+      <span class="flex items-center gap-2 text-gold-300 border border-gold/30 rounded-full px-3 py-1 text-xs">+18 · הימור אחראי</span>
+    </div>
+  </div>
+
+  <div class="cue absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-gold/70">
+    <svg width="22" height="34" viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="1" width="22" height="34" rx="11"/><line x1="12" y1="8" x2="12" y2="14"/></svg>
+  </div>
+</section>
+
+<!-- ══════════════ MARQUEE STRIP ══════════════ -->
+<div class="relative border-y border-white/5 bg-ink-800/60 py-5 overflow-hidden">
+  <div class="marquee font-display text-2xl sm:text-3xl text-ivory/30 tracking-widest2">
+    <span>לימסול</span><span class="text-gold">✦</span><span>באטומי</span><span class="text-gold">✦</span><span>בודפשט</span><span class="text-gold">✦</span><span>פורטו מונטנגרו</span><span class="text-gold">✦</span><span>ורנה</span><span class="text-gold">✦</span>
+    <span>לימסול</span><span class="text-gold">✦</span><span>באטומי</span><span class="text-gold">✦</span><span>בודפשט</span><span class="text-gold">✦</span><span>פורטו מונטנגרו</span><span class="text-gold">✦</span><span>ורנה</span><span class="text-gold">✦</span>
+  </div>
+</div>
+
+<!-- ══════════════ INTRO / VALUE ══════════════ -->
+<section class="max-w-8xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+  <div class="grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-5 reveal">
+      <p class="eyebrow text-gold text-xs mb-4">The Monarch Standard</p>
+      <h2 class="font-serif text-4xl sm:text-5xl leading-tight">
+        לא עוד חבילת נופש.<br><span class="text-gold-grad">חוויית מלכים.</span>
+      </h2>
+    </div>
+    <div class="lg:col-span-7 reveal" data-d="1">
+      <p class="text-lg text-ivory/80 leading-loose">
+        אנחנו לא מוכרים טיסה ולינה — אנחנו מתכננים ערב שלם. מהרגע שהלימוזין אוסף אתכם משדה התעופה,
+        דרך הצ׳ק־אין המהיר בלובי השיש, ועד השולחן השמור עם שמכם עליו. כל פרט מתוזמן, כל בקשה נענית,
+        וכל לילה מרגיש כמו הזמנה אישית מבית המלוכה.
+      </p>
+      <div class="hairline my-8"></div>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div><p class="font-serif text-4xl text-gold-grad">12</p><p class="text-muted text-sm mt-1">שנות ניסיון בקזינו יוקרה</p></div>
+        <div><p class="font-serif text-4xl text-gold-grad">5★</p><p class="text-muted text-sm mt-1">רק מלונות מדורגים ומאושרים</p></div>
+        <div><p class="font-serif text-4xl text-gold-grad">24/7</p><p class="text-muted text-sm mt-1">קונסיירז׳ אישי בעברית</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ DESTINATIONS ══════════════ -->
+<section id="destinations" class="max-w-8xl mx-auto px-5 sm:px-8 py-8 sm:py-12">
+  <div class="flex items-end justify-between flex-wrap gap-4 mb-12">
+    <div class="reveal">
+      <p class="eyebrow text-gold text-xs mb-3">Destinations</p>
+      <h2 class="font-serif text-4xl sm:text-5xl">היעדים הנבחרים</h2>
+    </div>
+    <p class="text-muted max-w-sm reveal" data-d="1">חמישה מוקדי משחק אירופיים, במרחק טיסה קצרה — כולם עם קזינו מורשה במלון עצמו.</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Limassol - featured -->
+    <article class="card-dest lg:col-span-2 lg:row-span-2 min-h-[420px] reveal group">
+      <img src="assets/img/panorama.jpg" alt="מתחם קזינו על קו המים בלימסול, קפריסין" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="shade"></div>
+      <div class="relative z-10 h-full flex flex-col justify-end p-7 sm:p-9">
+        <span class="inline-flex w-fit items-center gap-2 text-[11px] tracking-widest uppercase text-gold-300 border border-gold/40 rounded-full px-3 py-1 mb-4">היעד המבוקש ביותר</span>
+        <h3 class="font-serif text-4xl sm:text-5xl mb-2">לימסול<span class="text-muted text-xl mr-2 font-sans">קפריסין</span></h3>
+        <p class="text-ivory/80 max-w-md leading-relaxed">City of Dreams Mediterranean — קזינו ענק הפתוח 24/7, מגדל 5★ מול הים התיכון, ספא, וגסטרונומיית שף. שעה טיסה בלבד מתל אביב.</p>
+        <div class="mt-5 flex items-center gap-6">
+          <span class="text-sm text-muted">החל מ־</span><span class="font-serif text-3xl text-gold-grad">€690</span><span class="text-sm text-muted">/ אדם · 3 לילות</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Batumi -->
+    <article class="card-dest min-h-[260px] reveal group" data-d="1">
+      <img src="assets/img/arrival.jpg" alt="כניסת מלון קזינו יוקרתי בבאטומי" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="shade"></div>
+      <div class="relative z-10 h-full flex flex-col justify-end p-6">
+        <h3 class="font-serif text-3xl">באטומי <span class="text-muted text-base font-sans">גאורגיה</span></h3>
+        <p class="text-ivory/75 text-sm mt-1">״לאס וגאס של הים השחור״</p>
+        <p class="mt-3 font-serif text-2xl text-gold-grad">€520 <span class="text-xs text-muted font-sans">החל מ־ / אדם</span></p>
+      </div>
+    </article>
+
+    <!-- Budapest -->
+    <article class="card-dest min-h-[260px] reveal group" data-d="2">
+      <img src="assets/img/aerial-2.jpg" alt="מתחם קזינו מואר בלילה, בודפשט" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="shade"></div>
+      <div class="relative z-10 h-full flex flex-col justify-end p-6">
+        <h3 class="font-serif text-3xl">בודפשט <span class="text-muted text-base font-sans">הונגריה</span></h3>
+        <p class="text-ivory/75 text-sm mt-1">קלאסיקה אירופית עם קזינו מלכותי</p>
+        <p class="mt-3 font-serif text-2xl text-gold-grad">€610 <span class="text-xs text-muted font-sans">החל מ־ / אדם</span></p>
+      </div>
+    </article>
+
+    <!-- Montenegro -->
+    <article class="card-dest min-h-[260px] reveal group" data-d="1">
+      <img src="assets/img/aerial-1.jpg" alt="ריזורט מרינה יוקרתי במונטנגרו" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="shade"></div>
+      <div class="relative z-10 h-full flex flex-col justify-end p-6">
+        <h3 class="font-serif text-3xl">פורטו מונטנגרו <span class="text-muted text-base font-sans">מונטנגרו</span></h3>
+        <p class="text-ivory/75 text-sm mt-1">מרינה ליוקרה, יאכטות וקזינו בוטיק</p>
+        <p class="mt-3 font-serif text-2xl text-gold-grad">€740 <span class="text-xs text-muted font-sans">החל מ־ / אדם</span></p>
+      </div>
+    </article>
+
+    <!-- Varna -->
+    <article class="card-dest min-h-[260px] reveal group" data-d="2">
+      <img src="assets/img/view-sunset.jpg" alt="נוף שקיעה מסוויטה מול הים, ורנה" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="shade"></div>
+      <div class="relative z-10 h-full flex flex-col justify-end p-6">
+        <h3 class="font-serif text-3xl">ורנה <span class="text-muted text-base font-sans">בולגריה</span></h3>
+        <p class="text-ivory/75 text-sm mt-1">חופשת קזינו משתלמת על חוף הים</p>
+        <p class="mt-3 font-serif text-2xl text-gold-grad">€480 <span class="text-xs text-muted font-sans">החל מ־ / אדם</span></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════════ EXPERIENCE / IMAGE SEQUENCE ══════════════ -->
+<section id="experience" class="py-24 sm:py-32">
+  <div class="max-w-8xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <p class="eyebrow text-gold text-xs mb-3">A Night in Frames</p>
+      <h2 class="font-serif text-4xl sm:text-5xl">הערב, פריים אחר פריים</h2>
+      <p class="text-muted mt-4">מהגעה בלימוזין ועד היד הגדולה — כך נראה ליל מונרך.</p>
+    </div>
+  </div>
+
+  <!-- horizontal cinematic strip -->
+  <div class="seq-track flex gap-5 overflow-x-auto px-5 sm:px-8 pb-6 snap-x" style="scrollbar-width:thin">
+    <figure class="seq-item snap-center shrink-0 w-[86vw] sm:w-[560px] gilt rounded-2xl overflow-hidden reveal">
+      <img src="assets/img/arrival.jpg" alt="הגעה בלימוזין לכניסת הקזינו" class="w-full h-[62vw] sm:h-[360px] object-cover" />
+      <figcaption class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-ink to-transparent"><span class="eyebrow text-gold text-[10px]">01 · Arrival</span><p class="font-serif text-2xl">הלימוזין עוצר. הערב מתחיל.</p></figcaption>
+    </figure>
+    <figure class="seq-item snap-center shrink-0 w-[86vw] sm:w-[560px] gilt rounded-2xl overflow-hidden reveal" data-d="1">
+      <img src="assets/img/lobby.jpg" alt="לובי שיש עם נברשות קריסטל" class="w-full h-[62vw] sm:h-[360px] object-cover" />
+      <figcaption class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-ink to-transparent"><span class="eyebrow text-gold text-[10px]">02 · The Lobby</span><p class="font-serif text-2xl">צ׳ק־אין מתחת לקריסטל.</p></figcaption>
+    </figure>
+    <figure class="seq-item snap-center shrink-0 w-[86vw] sm:w-[560px] gilt rounded-2xl overflow-hidden reveal" data-d="2">
+      <img src="assets/img/poker-hall.jpg" alt="אולם פוקר עם שולחנות ירוקים" class="w-full h-[62vw] sm:h-[360px] object-cover" />
+      <figcaption class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-ink to-transparent"><span class="eyebrow text-gold text-[10px]">03 · The Floor</span><p class="font-serif text-2xl">השולחן השמור שלכם.</p></figcaption>
+    </figure>
+    <figure class="seq-item snap-center shrink-0 w-[86vw] sm:w-[560px] gilt rounded-2xl overflow-hidden reveal" data-d="3">
+      <img src="assets/img/couple-floor.jpg" alt="זוג נכנס לאולם המשחקים בליווי קונסיירז׳" class="w-full h-[62vw] sm:h-[360px] object-cover" />
+      <figcaption class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-ink to-transparent"><span class="eyebrow text-gold text-[10px]">04 · The Host</span><p class="font-serif text-2xl">מלווים בכל צעד.</p></figcaption>
+    </figure>
+    <figure class="seq-item snap-center shrink-0 w-[86vw] sm:w-[560px] gilt rounded-2xl overflow-hidden reveal" data-d="4">
+      <img src="assets/img/balcony-night.jpg" alt="מרפסת סוויטה עם נוף עיר לילי וז׳יטונים" class="w-full h-[62vw] sm:h-[360px] object-cover" />
+      <figcaption class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-ink to-transparent"><span class="eyebrow text-gold text-[10px]">05 · The Suite</span><p class="font-serif text-2xl">לילה שנגמר בנוף.</p></figcaption>
+    </figure>
+  </div>
+  <p class="text-center text-muted text-xs mt-4">↔ גללו לצדדים</p>
+</section>
+
+<!-- ══════════════ SUITE SHOWCASE (split) ══════════════ -->
+<section class="max-w-8xl mx-auto px-5 sm:px-8 py-16">
+  <div class="grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden glass">
+    <div class="relative min-h-[380px] reveal">
+      <img src="assets/img/balcony-sunset.jpg" alt="סוויטה עם מרפסת ונוף שקיעה אל הים" class="absolute inset-0 w-full h-full object-cover" />
+    </div>
+    <div class="p-9 sm:p-14 flex flex-col justify-center reveal" data-d="1">
+      <p class="eyebrow text-gold text-xs mb-4">Signature Suites</p>
+      <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-5">הסוויטה שממשיכה<br>את שולחן המשחק.</h2>
+      <p class="text-ivory/80 leading-loose mb-8">קומות גבוהות, נוף פתוח אל הים או אל קו הרקיע, ומיני־בר שמחכה לכם עם קלף וז׳יטון. בקשתם ערב שקט? ארוחת בוקר מאוחרת? ה־host שלכם כבר סידר.</p>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="text-gold mt-1">✦</span><span>Check-in מהיר וכניסת VIP נפרדת לקזינו</span></li>
+        <li class="flex items-start gap-3"><span class="text-gold mt-1">✦</span><span>קרדיט משחק וז׳יטוני כניסה בחבילות נבחרות</span></li>
+        <li class="flex items-start gap-3"><span class="text-gold mt-1">✦</span><span>שולחן שמור והזמנות מסעדות שף</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PACKAGES ══════════════ -->
+<section id="packages" class="max-w-8xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+  <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+    <p class="eyebrow text-gold text-xs mb-3">Packages</p>
+    <h2 class="font-serif text-4xl sm:text-5xl">בחרו את הרמה שלכם</h2>
+    <p class="text-muted mt-4">כל חבילה כוללת טיסה, לינה והעברות. ההבדל הוא כמה רחוק לוקחים את הערב.</p>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+    <!-- Classic -->
+    <div class="glass price-ring p-8 flex flex-col transition reveal">
+      <h3 class="font-serif text-3xl mb-1">קלאסי</h3>
+      <p class="text-muted text-sm mb-6">הכניסה המושלמת לעולם</p>
+      <p class="font-serif text-4xl text-gold-grad mb-1">€590</p>
+      <p class="text-muted text-xs mb-7">לאדם · 3 לילות · על בסיס זוג</p>
+      <ul class="space-y-3 text-ivory/85 text-[15px] flex-1">
+        <li class="flex gap-3"><span class="text-gold">✓</span> טיסה ישירה הלוך־חזור</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> מלון 4–5★ עם קזינו במתחם</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> העברות שדה־מלון</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> כניסה לקזינו ומדריך שולחנות</li>
+      </ul>
+      <a href="#quote" class="btn-ghost text-center mt-8 py-3.5">בקשת הצעה</a>
+    </div>
+
+    <!-- Premium - featured -->
+    <div class="relative p-8 flex flex-col rounded-[20px] reveal" data-d="1"
+         style="background:linear-gradient(180deg,rgba(212,175,55,.12),rgba(11,17,25,.85));border:1px solid rgba(212,175,55,.45);box-shadow:0 40px 80px -40px rgba(212,175,55,.5)">
+      <span class="absolute -top-3 right-8 bg-gold text-ink text-xs font-bold px-4 py-1 rounded-full">הכי פופולרי</span>
+      <h3 class="font-serif text-3xl mb-1">פרימיום</h3>
+      <p class="text-gold-300 text-sm mb-6">הערב כפי שהוא צריך להיות</p>
+      <p class="font-serif text-4xl text-gold-grad mb-1">€1,090</p>
+      <p class="text-muted text-xs mb-7">לאדם · 4 לילות · על בסיס זוג</p>
+      <ul class="space-y-3 text-ivory text-[15px] flex-1">
+        <li class="flex gap-3"><span class="text-gold">✓</span> כל מה שבקלאסי, ובנוסף:</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> מלון 5★ ושדרוג חדר עם נוף</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> ז׳יטוני כניסה וקרדיט משחק</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> כניסת VIP וצ׳ק־אין מהיר</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> שולחן שמור + הזמנת מסעדת שף</li>
+      </ul>
+      <a href="#quote" class="btn-gold text-center mt-8 py-3.5">קבלת הצעה</a>
+    </div>
+
+    <!-- High Roller -->
+    <div class="glass price-ring p-8 flex flex-col transition reveal" data-d="2">
+      <h3 class="font-serif text-3xl mb-1">High-Roller VIP</h3>
+      <p class="text-muted text-sm mb-6">בהזמנה בלבד</p>
+      <p class="font-serif text-4xl text-gold-grad mb-1">אישי</p>
+      <p class="text-muted text-xs mb-7">תפור למידותיכם · טיסת עסקים אופציונלית</p>
+      <ul class="space-y-3 text-ivory/85 text-[15px] flex-1">
+        <li class="flex gap-3"><span class="text-gold">✓</span> סוויטת פאר ולימוזין פרטית</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> Casino Host אישי לאורך השהות</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> שולחנות High-Limit שמורים</li>
+        <li class="flex gap-3"><span class="text-gold">✓</span> קונסיירז׳ 24/7 בעברית</li>
+      </ul>
+      <a href="#quote" class="btn-ghost text-center mt-8 py-3.5">שיחה עם יועץ</a>
+    </div>
+  </div>
+  <p class="text-center text-muted text-xs mt-6">* המחירים להמחשה בלבד וכפופים לזמינות, ליעד ולמועד. אינם כוללים הוצאות אישיות והימורים.</p>
+</section>
+
+<!-- ══════════════ VIP / WHY US ══════════════ -->
+<section id="vip" class="relative overflow-hidden grain">
+  <img src="assets/img/aerial-1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-25" />
+  <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink"></div>
+  <div class="relative z-10 max-w-8xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+    <div class="max-w-2xl reveal">
+      <p class="eyebrow text-gold text-xs mb-3">The Monarch Club</p>
+      <h2 class="font-serif text-4xl sm:text-6xl leading-tight">חברי מועדון<br><span class="text-gold-grad">משחקים אחרת.</span></h2>
+      <p class="text-ivory/80 mt-6 text-lg leading-loose">הצטרפות חינם. הטבות שמרגישים כבר מהיעד הראשון — שדרוגים, קרדיט משחק, וגישה לאירועי פוקר פרטיים.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+      <div class="glass p-6 reveal">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37"><path d="M2 7h20l-2 5H4zM4 13h16v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></svg>
+        <h4 class="font-serif text-xl mt-4 mb-1">ז׳יטוני כניסה</h4><p class="text-muted text-sm">קרדיט משחק מתנה בחבילות נבחרות.</p>
+      </div>
+      <div class="glass p-6 reveal" data-d="1">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"><path d="M2 16l3-9 4 5 3-8 3 8 4-5 3 9z"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        <h4 class="font-serif text-xl mt-4 mb-1">שדרוג אוטומטי</h4><p class="text-muted text-sm">חדר, קומה ונוף — כשזמין, זה שלכם.</p>
+      </div>
+      <div class="glass p-6 reveal" data-d="2">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <h4 class="font-serif text-xl mt-4 mb-1">Host אישי</h4><p class="text-muted text-sm">איש קשר אחד לכל בקשה, בעברית.</p>
+      </div>
+      <div class="glass p-6 reveal" data-d="3">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#d4af37"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6-6.3 4.6L7.9 14 2 9.4h7.6z"/></svg>
+        <h4 class="font-serif text-xl mt-4 mb-1">אירועים סגורים</h4><p class="text-muted text-sm">טורנירי פוקר וערבי VIP למוזמנים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section class="max-w-8xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+  <div class="text-center mb-14 reveal">
+    <p class="eyebrow text-gold text-xs mb-3">Guests</p>
+    <h2 class="font-serif text-4xl sm:text-5xl">מה אומרים באולם</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <blockquote class="glass p-8 reveal">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="#d4af37" opacity=".5"><path d="M10 7H6a2 2 0 0 0-2 2v6h6V9H7c0-1 1-2 3-2zm10 0h-4a2 2 0 0 0-2 2v6h6V9h-3c0-1 1-2 3-2z"/></svg>
+      <p class="text-ivory/90 text-lg leading-relaxed mt-4">״הכל היה מתוזמן לשנייה. ירדנו מהמטוס וכבר חיכה לנו נהג עם שלט. הרגשנו אורחים של המלך.״</p>
+      <footer class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-gold/20 grid place-items-center font-serif text-gold">ד</span><div><p class="font-medium">דניאל ר׳</p><p class="text-muted text-sm">לימסול · פרימיום</p></div></footer>
+    </blockquote>
+    <blockquote class="glass p-8 reveal" data-d="1">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="#d4af37" opacity=".5"><path d="M10 7H6a2 2 0 0 0-2 2v6h6V9H7c0-1 1-2 3-2zm10 0h-4a2 2 0 0 0-2 2v6h6V9h-3c0-1 1-2 3-2z"/></svg>
+      <p class="text-ivory/90 text-lg leading-relaxed mt-4">״ה־host שדיבר איתנו בעברית עשה את ההבדל. שולחן שמור, מסעדה, ואפילו יום הולדת מופתע. חוזרים.״</p>
+      <footer class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-gold/20 grid place-items-center font-serif text-gold">מ</span><div><p class="font-medium">מיכל ואסף</p><p class="text-muted text-sm">באטומי · VIP</p></div></footer>
+    </blockquote>
+    <blockquote class="glass p-8 reveal" data-d="2">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="#d4af37" opacity=".5"><path d="M10 7H6a2 2 0 0 0-2 2v6h6V9H7c0-1 1-2 3-2zm10 0h-4a2 2 0 0 0-2 2v6h6V9h-3c0-1 1-2 3-2z"/></svg>
+      <p class="text-ivory/90 text-lg leading-relaxed mt-4">״הזמנו שבוע לפני. קיבלנו מחיר טוב מכל מה שמצאנו לבד, עם שדרוג לסוויטה. שירות ברמה אחרת.״</p>
+      <footer class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-gold/20 grid place-items-center font-serif text-gold">י</span><div><p class="font-medium">יואב ק׳</p><p class="text-muted text-sm">בודפשט · פרימיום</p></div></footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ══════════════ QUOTE / LEAD FORM ══════════════ -->
+<section id="quote" class="max-w-8xl mx-auto px-5 sm:px-8 py-16">
+  <div class="grid lg:grid-cols-2 rounded-3xl overflow-hidden">
+    <div class="relative min-h-[320px] hidden lg:block">
+      <img src="assets/img/travel-still.jpg" alt="תיק נסיעה, ז׳יטונים וקלפים על שולחן שיש" class="absolute inset-0 w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-l from-ink/40 to-transparent"></div>
+    </div>
+    <div class="bg-ink-700 p-8 sm:p-12 reveal">
+      <p class="eyebrow text-gold text-xs mb-3">Your Journey</p>
+      <h2 class="font-serif text-3xl sm:text-4xl mb-2">קבלת הצעה אישית</h2>
+      <p class="text-muted mb-8">מלאו פרטים ויועץ מונרך יחזור אליכם עם הצעה מדויקת — בדרך כלל תוך שעתיים בשעות הפעילות.</p>
+      <form id="leadForm" class="grid sm:grid-cols-2 gap-4">
+        <input class="field" name="name" placeholder="שם מלא" required />
+        <input class="field" name="phone" type="tel" placeholder="טלפון" required />
+        <select class="field" name="dest">
+          <option value="">יעד מועדף</option>
+          <option>לימסול, קפריסין</option><option>באטומי, גאורגיה</option><option>בודפשט, הונגריה</option>
+          <option>פורטו מונטנגרו</option><option>ורנה, בולגריה</option><option>עדיין מתלבט/ת</option>
+        </select>
+        <select class="field" name="pkg">
+          <option value="">רמת חבילה</option>
+          <option>קלאסי</option><option>פרימיום</option><option>High-Roller VIP</option>
+        </select>
+        <input class="field sm:col-span-2" name="dates" placeholder="תאריכים משוערים / מספר נוסעים" />
+        <label class="sm:col-span-2 flex items-start gap-3 text-sm text-muted">
+          <input type="checkbox" required class="mt-1 accent-[#d4af37]" />
+          <span>אני מאשר/ת יצירת קשר ומעל גיל 18. <a href="#responsible" class="text-gold hover:underline">הימור אחראי</a>.</span>
+        </label>
+        <button class="btn-gold sm:col-span-2 py-4 text-base mt-2" type="submit">שליחת בקשה</button>
+      </form>
+      <p id="formOk" class="hidden mt-4 text-gold-300 text-sm">✦ תודה! הבקשה נקלטה — יועץ מונרך יחזור אליכם בהקדם.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section id="faq" class="max-w-3xl mx-auto px-5 sm:px-8 py-24">
+  <div class="text-center mb-12 reveal">
+    <p class="eyebrow text-gold text-xs mb-3">FAQ</p>
+    <h2 class="font-serif text-4xl sm:text-5xl">שאלות נפוצות</h2>
+  </div>
+  <div class="divide-y divide-white/8">
+    <details class="group py-5 reveal"><summary class="flex justify-between items-center cursor-pointer list-none"><span class="font-serif text-xl">מה כוללת החבילה?</span><span class="text-gold text-2xl group-open:rotate-45 transition">+</span></summary><p class="text-muted mt-3 leading-relaxed">טיסה ישירה הלוך־חזור, לינה במלון עם קזינו במתחם, והעברות משדה התעופה. חבילות פרימיום ו־VIP כוללות גם שדרוגים, ז׳יטוני כניסה וליווי אישי.</p></details>
+    <details class="group py-5 reveal"><summary class="flex justify-between items-center cursor-pointer list-none"><span class="font-serif text-xl">כמה זמן הטיסה?</span><span class="text-gold text-2xl group-open:rotate-45 transition">+</span></summary><p class="text-muted mt-3 leading-relaxed">רוב היעדים במרחק טיסה ישירה של 1–4 שעות מתל אביב. לימסול, למשל, כשעה בלבד.</p></details>
+    <details class="group py-5 reveal"><summary class="flex justify-between items-center cursor-pointer list-none"><span class="font-serif text-xl">האם המחירים סופיים?</span><span class="text-gold text-2xl group-open:rotate-45 transition">+</span></summary><p class="text-muted mt-3 leading-relaxed">המחירים המוצגים הם ״החל מ־״ להמחשה, ותלויים ביעד, במועד ובזמינות. ההצעה האישית שתקבלו היא המחיר המחייב.</p></details>
+    <details class="group py-5 reveal"><summary class="flex justify-between items-center cursor-pointer list-none"><span class="font-serif text-xl">מגיל כמה מותר להיכנס לקזינו?</span><span class="text-gold text-2xl group-open:rotate-45 transition">+</span></summary><p class="text-muted mt-3 leading-relaxed">הכניסה לקזינו מגיל 18 ומעלה, בכפוף לחוקי היעד ולהצגת דרכון. אנו מקדמים הימור אחראי בלבד.</p></details>
+  </div>
+</section>
+
+<!-- ══════════════ FINAL CTA ══════════════ -->
+<section class="relative overflow-hidden">
+  <img src="assets/img/exterior-portrait.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+  <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/80 to-ink"></div>
+  <div class="relative z-10 max-w-3xl mx-auto text-center px-5 py-28 reveal">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="#d4af37" class="mx-auto mb-6 opacity-80"><path d="M12 2C9 6 4 8 4 13a4 4 0 0 0 7 2 4 4 0 0 0 7-2c0-5-5-7-6-11z"/></svg>
+    <h2 class="font-serif text-4xl sm:text-6xl leading-tight">היד הבאה שלכם<br><span class="text-gold-grad">מתחילה עכשיו.</span></h2>
+    <p class="text-ivory/80 mt-6 text-lg">ספרו לנו לאן — ואנחנו נדאג לכל השאר.</p>
+    <a href="#quote" class="btn-gold inline-block mt-9 px-10 py-4 text-base">קבלת הצעה אישית</a>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="border-t border-white/8 bg-ink-800">
+  <div class="max-w-8xl mx-auto px-5 sm:px-8 py-14">
+    <div class="grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="34" height="34" viewBox="0 0 48 48"><path d="M24 3l3.4 6.9 7.6 1.1-5.5 5.4 1.3 7.6L24 27.5 17.2 31l1.3-7.6L13 18l7.6-1.1z" fill="#d4af37"/><path d="M24 20c-4.5 5-9 7.6-9 12.2 0 2.7 2.1 4.6 4.7 4.6 1.9 0 3.4-1 4.3-2.6.9 1.6 2.4 2.6 4.3 2.6 2.6 0 4.7-1.9 4.7-4.6C33 27.6 28.5 25 24 20z" fill="#d4af37"/></svg>
+          <span class="font-display text-2xl tracking-[.22em] text-gold-grad">MONARCH</span>
+        </div>
+        <p class="text-muted max-w-sm leading-relaxed">חופשות קזינו יוקרתיות ליעדים הנחשקים באירופה. תכנון אישי, ליווי VIP והימור אחראי — מהמראה ועד נחיתה.</p>
+      </div>
+      <div>
+        <h4 class="text-gold-300 text-sm mb-4 tracking-wide">ניווט</h4>
+        <ul class="space-y-2 text-muted text-sm">
+          <li><a href="#destinations" class="hover:text-gold">יעדים</a></li>
+          <li><a href="#packages" class="hover:text-gold">חבילות</a></li>
+          <li><a href="#vip" class="hover:text-gold">מועדון VIP</a></li>
+          <li><a href="#faq" class="hover:text-gold">שאלות נפוצות</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-gold-300 text-sm mb-4 tracking-wide">יצירת קשר</h4>
+        <ul class="space-y-2 text-muted text-sm">
+          <li><a href="tel:+97230000000" class="hover:text-gold">03-000-0000</a></li>
+          <li><a href="mailto:vip@monarch.example" class="hover:text-gold">vip@monarch.example</a></li>
+          <li>א-ה 09:00–20:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="responsible" class="hairline my-10"></div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <p class="flex items-center gap-3">
+        <span class="border border-gold/40 text-gold-300 rounded-full px-3 py-1">+18</span>
+        הימור אחראי בלבד. הימור עלול לגרום להתמכרות. שחקו במסגרת התקציב שלכם.
+      </p>
+      <p>© 2026 MONARCH · מונרך. אתר הדגמה. כל המחירים והמותג להמחשה.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- sticky nav ---------- */
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+onScroll(); addEventListener('scroll', onScroll, { passive:true });
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{ threshold:.12, rootMargin:'0px 0px -6% 0px' });
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- graceful video fallback ---------- */
+const v = document.querySelector('video.hero-media');
+if (v) v.addEventListener('error', ()=> v.style.display='none');
+
+/* ---------- lead form (demo) ---------- */
+const f = document.getElementById('leadForm');
+f?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  f.reset();
+  document.getElementById('formOk').classList.remove('hidden');
+});
+</script>
+</body>
+</html>
