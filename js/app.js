@@ -158,6 +158,19 @@
   navScroll();
   window.addEventListener('scroll', navScroll, { passive: true });
 
+  // mobile menu
+  const navToggle = document.getElementById('navToggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('menu-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('.nav__mobile a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }

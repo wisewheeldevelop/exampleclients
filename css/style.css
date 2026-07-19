@@ -19,7 +19,8 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; scroll-padding-top:76px; }
+:focus-visible{ outline:2px solid var(--ember); outline-offset:3px; border-radius:6px; }
 
 body{
   font-family:"Heebo", system-ui, sans-serif;
@@ -132,6 +133,33 @@ em{ font-style:normal; color:var(--ember-2); }
 .nav__links a:hover{ color:var(--cream); }
 .nav__links a:hover::after{ transform:scaleX(1); }
 
+.nav__actions{ display:flex; align-items:center; gap:12px; }
+.nav__toggle{
+  display:none; width:42px; height:42px; border-radius:12px;
+  border:1px solid var(--char-line); background:rgba(246,237,224,.04);
+  color:var(--cream); cursor:pointer; place-items:center;
+  transition:border-color .25s, background .25s;
+}
+.nav__toggle:hover{ border-color:rgba(232,121,30,.45); background:rgba(232,121,30,.08); }
+.nav__mobile{
+  display:none; flex-direction:column; gap:4px;
+  padding:10px 24px 20px;
+  background:rgba(11,10,9,.92);
+  backdrop-filter:saturate(160%) blur(16px);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  border-top:1px solid var(--char-line);
+}
+.nav__mobile a{ padding:12px 4px; color:var(--cream-dim); font-weight:600; transition:color .25s; }
+.nav__mobile a:hover{ color:var(--cream); }
+.nav__mobile .btn{ margin-top:10px; justify-content:center; color:#1a0f04; }
+.nav.menu-open .nav__mobile{ display:flex; }
+.nav.menu-open{
+  background:rgba(11,10,9,.92);
+  backdrop-filter:saturate(160%) blur(16px);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  border-bottom-color:var(--char-line);
+}
+
 /* ============================================================
    HERO — SCROLL SEQUENCE
    ============================================================ */
@@ -178,8 +206,15 @@ em{ font-style:normal; color:var(--ember-2); }
   position:absolute; bottom:8vh; display:flex; flex-direction:column; align-items:center; gap:6px;
   font-size:.78rem; letter-spacing:.18em; color:var(--cream-dim); text-transform:uppercase;
 }
-.cap__chev{ font-size:1.4rem; animation:bob 1.8s var(--ease) infinite; }
+.cap__chev{ animation:bob 1.8s var(--ease) infinite; }
 @keyframes bob{ 0%,100%{ transform:translateY(0); opacity:.6; } 50%{ transform:translateY(6px); opacity:1; } }
+
+/* localized scrims — readable captions without washing out the spit */
+.cap::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; }
+.cap--split::before{ background:radial-gradient(44% 42% at 82% 50%, rgba(11,10,9,.66), transparent 72%); }
+.cap--split.cap--right::before{ background:radial-gradient(44% 42% at 18% 50%, rgba(11,10,9,.66), transparent 72%); }
+.cap--center::before{ background:radial-gradient(44% 40% at 50% 52%, rgba(11,10,9,.62), transparent 74%); }
+.cap[data-cap="0"]::before{ background:radial-gradient(50% 44% at 50% 52%, rgba(11,10,9,.5), transparent 76%); }
 
 /* split captions (big statement to a side) */
 .cap--split{ align-items:flex-start; justify-content:center; text-align:right; padding:0 clamp(24px,8vw,140px); }
@@ -348,11 +383,15 @@ em{ font-style:normal; color:var(--ember-2); }
    ============================================================ */
 @media (max-width:860px){
   .nav__links{ display:none; }
+  .nav__toggle{ display:grid; }
   .menu__grid{ grid-template-columns:1fr; }
   .story__stats{ gap:28px; }
   .gallery__grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:160px; }
   .branches__grid{ grid-template-columns:1fr; }
-  .cap--split, .cap--split.cap--right{ align-items:center; text-align:center; padding:0 24px; }
+  .cap--split, .cap--split.cap--right{ align-items:center; justify-content:flex-end; text-align:center; padding:0 24px 9vh; }
+  .cap--split::before, .cap--split.cap--right::before{
+    background:linear-gradient(to top, rgba(11,10,9,.88) 0%, rgba(11,10,9,.5) 34%, transparent 58%); }
+  .cap--center::before{ background:radial-gradient(70% 44% at 50% 55%, rgba(11,10,9,.68), transparent 78%); }
   .story__scrim{ background:linear-gradient(180deg, rgba(11,10,9,.6), rgba(11,10,9,.92)); }
 }
 @media (max-width:520px){

@@ -14,6 +14,8 @@
 }
 
 *{ -webkit-tap-highlight-color:transparent; }
+:focus-visible{ outline:2px solid var(--yellow); outline-offset:3px; border-radius:6px; }
+a, button, select, input, textarea{ outline-offset:3px; }
 html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--banner-h) + 72px); }
 body{ background:var(--ink); color:var(--cream); }
 body.is-loading{ overflow:hidden; height:100vh; }
@@ -83,8 +85,16 @@ body.is-loading{ overflow:hidden; height:100vh; }
 }
 .cap .btn-yolk{ pointer-events:auto; }
 .cap--hero{ justify-content:flex-end; padding-bottom:7vh; }
-.cap--split{ align-items:flex-start; text-align:right; padding-inline:clamp(24px,9vw,150px); }
+.cap--split{ align-items:flex-start; text-align:right; padding-inline:clamp(24px,7vw,120px); }
 .cap--right{ align-items:flex-end; text-align:left; }
+
+/* localized scrims — keep the text readable without washing out the burger */
+.cap::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; }
+.cap--split::before{ background:radial-gradient(46% 44% at 82% 50%, rgba(4,6,15,.72), transparent 72%); }
+.cap--split.cap--right::before{ background:radial-gradient(46% 44% at 18% 50%, rgba(4,6,15,.72), transparent 72%); }
+.cap--center{ justify-content:flex-end; padding-bottom:8vh; }
+.cap--center::before{ background:linear-gradient(to top, rgba(4,6,15,.9) 0%, rgba(4,6,15,.55) 30%, transparent 55%); }
+.cap--split > *{ max-width:min(560px, 40vw); }
 
 /* ---- buttons ---- */
 .btn-yolk{
@@ -197,8 +207,12 @@ body.is-loading{ overflow:hidden; height:100vh; }
   :root{ --banner-h:54px; }
   html{ scroll-padding-top:calc(var(--banner-h) + 60px); }
   .cap{ padding:0 20px; }
-  .cap--split, .cap--right{ align-items:center; text-align:center; padding-inline:20px; }
+  .cap--split, .cap--right{ align-items:center; justify-content:flex-end; text-align:center; padding-inline:20px; padding-bottom:9vh; }
+  .cap--split > *{ max-width:100%; }
   .cap p{ max-width:32ch; }
+  .cap--split::before, .cap--split.cap--right::before{
+    background:linear-gradient(to top, rgba(4,6,15,.88) 0%, rgba(4,6,15,.5) 34%, transparent 58%); }
+  .cap--center::before{ background:linear-gradient(to top, rgba(4,6,15,.92) 0%, rgba(4,6,15,.55) 36%, transparent 62%); }
   .btn-yolk, .btn-blue, .btn-ghost{ padding:.85em 1.5em; font-size:.98rem; }
 }
 @media (min-width:1536px){ .hero{ height:600vh; } }

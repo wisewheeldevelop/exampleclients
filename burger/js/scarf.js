@@ -65,15 +65,6 @@ function boot() {
     });
   }
 
-  new THREE.TextureLoader().load('images/scarf.png', (tex) => {
-    procedural = false;
-    tex.colorSpace = THREE.SRGBColorSpace;
-    tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.ClampToEdgeWrapping;
-    tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-    uniforms.uTex.value.dispose?.();
-    uniforms.uTex.value = tex; resize();
-  }, undefined, () => {});
-
   function resize() {
     const w = banner.clientWidth || window.innerWidth;
     const h = banner.clientHeight || 84;

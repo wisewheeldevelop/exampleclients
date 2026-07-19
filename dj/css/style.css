@@ -9,9 +9,28 @@
   --blue:#3b82f6;
 }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; scroll-padding-top:76px; }
 body{ background:#060510; }
 body.is-loading{ overflow:hidden; height:100vh; }
+
+:focus-visible{ outline:2px solid var(--purple); outline-offset:3px; border-radius:6px; }
+
+/* nav — glass once scrolled */
+#nav.scrolled{
+  background:rgba(8,6,20,.72);
+  backdrop-filter:saturate(160%) blur(16px);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  border-bottom-color:rgba(168,85,247,.16);
+  box-shadow:0 12px 34px -22px rgba(0,0,0,.9);
+}
+
+/* feature icon chip */
+.ic-chip{
+  width:2.9rem; height:2.9rem; flex:none; border-radius:.9rem;
+  display:grid; place-items:center; color:#fff;
+  box-shadow:0 10px 22px -12px rgba(168,85,247,.8);
+}
+.ic-chip svg{ width:1.4rem; height:1.4rem; }
 
 ::selection{ background:var(--pink); color:#fff; }
 
@@ -69,8 +88,24 @@ body.is-loading{ overflow:hidden; height:100vh; }
   will-change:opacity, transform;
 }
 .cap .btn-neon{ pointer-events:auto; }
-.cap--split{ align-items:flex-start; text-align:right; padding-inline:clamp(24px,9vw,150px); }
+.cap--split{ align-items:flex-start; text-align:right; padding-inline:clamp(24px,8vw,130px); }
 .cap--right{ align-items:flex-end; text-align:left; }
+
+/* localized scrims — keep captions readable over the busy dance floor */
+.cap::before{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; }
+.cap--split::before{ background:radial-gradient(48% 46% at 80% 50%, rgba(6,5,16,.74), transparent 72%); }
+.cap--split.cap--right::before{ background:radial-gradient(48% 46% at 20% 50%, rgba(6,5,16,.74), transparent 72%); }
+.cap--center::before{ background:radial-gradient(46% 42% at 50% 52%, rgba(6,5,16,.7), transparent 74%); }
+.cap[data-cap="0"]::before{ background:radial-gradient(52% 46% at 50% 50%, rgba(6,5,16,.5), transparent 75%); }
+.cap--split > *{ max-width:min(560px, 42vw); }
+
+@media (max-width:640px){
+  .cap--split, .cap--split.cap--right{ align-items:center; justify-content:flex-end; text-align:center; padding-inline:20px; padding-bottom:10vh; }
+  .cap--split > *{ max-width:100%; }
+  .cap--split::before, .cap--split.cap--right::before{
+    background:linear-gradient(to top, rgba(6,5,16,.9) 0%, rgba(6,5,16,.52) 36%, transparent 60%); }
+  .cap--center::before{ background:radial-gradient(72% 46% at 50% 55%, rgba(6,5,16,.76), transparent 78%); }
+}
 
 /* neon button */
 .btn-neon{

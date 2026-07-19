@@ -55,23 +55,35 @@
     if (!img || !img.complete || !img.naturalWidth) return;
     const iw = img.naturalWidth, ih = img.naturalHeight;
     if (ch > cw) {
-      // PORTRAIT: show the whole burger BIG, centred in the band under the header
-      // (never crop the sides), so no dead black gap and the full bun is visible.
-      const bandTop = ch * 0.12, bandBot = ch * 0.87;
+      // PORTRAIT: show the whole burger BIG, high in the frame so the bottom
+      // caption band stays clear (never crop the sides).
+      const bandTop = ch * 0.10, bandBot = ch * 0.78;
       let scale = (cw * 0.96) / (iw * BURGER_W);
       scale = Math.min(scale, (bandBot - bandTop) / ih);
       const dw = iw * scale, dh = ih * scale;
       const dy = bandTop + (bandBot - bandTop - dh) / 2;
       ctx.drawImage(img, (cw - dw) / 2, dy, dw, dh);
     } else {
-      // LANDSCAPE: contain — the whole burger fills the width
+      // LANDSCAPE: contain — the whole burger fills the frame, gliding sideways
+      // to clear the stage for each side caption (Apple-style choreography).
       const scale = Math.min(cw / iw, ch / ih);
       const dw = iw * scale, dh = ih * scale;
-      ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+      ctx.drawImage(img, (cw - dw) / 2 + currentShift * cw, (ch - dh) / 2, dw, dh);
     }
   }
 
   let currentFrame = 0, targetFrame = 0, lastDrawn = -1, ticking = false;
+  let currentShift = 0, targetShift = 0, lastShift = 0;
+
+  // Side-caption choreography: while caption 1 (right side) is visible the
+  // burger glides left; while caption 2 (left side) is visible it glides right.
+  const REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const SHIFT_X = REDUCE_MOTION ? 0 : 0.15;
+  function shiftCurve(p) {
+    const s1 = smoothstep(0.24, 0.36, p) - smoothstep(0.46, 0.57, p);
+    const s2 = smoothstep(0.55, 0.67, p) - smoothstep(0.75, 0.86, p);
+    return (-s1 + s2) * SHIFT_X;
+  }
 
   function computeTarget() {
     const rect = hero.getBoundingClientRect();
@@ -79,19 +91,22 @@
     const scrolled = Math.min(Math.max(-rect.top, 0), total);
     const p = total > 0 ? scrolled / total : 0;
     targetFrame = p * (FRAME_COUNT - 1);
+    targetShift = shiftCurve(p);
     updateCaptions(p);
   }
   function drawFrame(index, force) {
     const i = Math.round(index);
-    if (!force && i === lastDrawn) return;
-    lastDrawn = i;
+    if (!force && i === lastDrawn && Math.abs(currentShift - lastShift) < 0.0005) return;
+    lastDrawn = i; lastShift = currentShift;
     drawFit(images[Math.min(Math.max(i, 0), FRAME_COUNT - 1)]);
   }
   function loop() {
     currentFrame += (targetFrame - currentFrame) * 0.18;
+    currentShift += (targetShift - currentShift) * 0.14;
     if (Math.abs(targetFrame - currentFrame) < 0.01) currentFrame = targetFrame;
+    if (Math.abs(targetShift - currentShift) < 0.0004) currentShift = targetShift;
     drawFrame(currentFrame, false);
-    if (Math.abs(targetFrame - currentFrame) > 0.01) requestAnimationFrame(loop);
+    if (Math.abs(targetFrame - currentFrame) > 0.01 || Math.abs(targetShift - currentShift) > 0.0004) requestAnimationFrame(loop);
     else ticking = false;
   }
   function kick() { if (!ticking) { ticking = true; requestAnimationFrame(loop); } }
