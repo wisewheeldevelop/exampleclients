@@ -1,0 +1,265 @@
+/* ============================================================
+   3D SHOWROOM LOBBY — HUD overlay
+   Dark glass chrome over the WebGL stage · studio aura branding
+   ============================================================ */
+
+:root{
+  --ink:#05060A;
+  --cream:#EDEFF7;
+  --dim:#99A0B6;
+  --gold:#FFB45C;
+  --aura-a:#8FA2FF; --aura-b:#C86BFF; --aura-c:#FF9DBB;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+html, body{ height:100%; }
+body{
+  font-family:"Heebo", system-ui, sans-serif;
+  background:#0a0f1c; color:var(--cream);
+  overflow:hidden; -webkit-font-smoothing:antialiased;
+  touch-action:none;
+}
+a{ color:inherit; text-decoration:none; cursor:pointer; }
+[hidden]{ display:none !important; }
+:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; border-radius:8px; }
+
+#stage{ position:fixed; inset:0; width:100%; height:100%; display:block; cursor:grab; }
+#stage.dragging{ cursor:grabbing; }
+#stage.hovering{ cursor:pointer; }
+
+/* ============================================================
+   PRELOADER
+   ============================================================ */
+.preloader{
+  position:fixed; inset:0; z-index:100; display:grid; place-items:center;
+  background:radial-gradient(120% 120% at 50% 30%, #101a30 0%, #070b14 70%);
+  transition:opacity .8s var(--ease), visibility .8s;
+}
+.preloader.done{ opacity:0; visibility:hidden; pointer-events:none; }
+.preloader__inner{ display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; }
+.preloader__orb{
+  width:64px; height:64px; border-radius:50%;
+  background:conic-gradient(from 210deg,var(--aura-a),var(--aura-b),var(--aura-c),var(--aura-a));
+  filter:drop-shadow(0 0 26px rgba(200,107,255,.55));
+  animation:spin 3.2s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.preloader__word{ font-weight:800; font-size:1.6rem; letter-spacing:.06em; }
+.preloader__bar{ width:230px; height:3px; border-radius:99px; background:rgba(255,255,255,.12); overflow:hidden; }
+.preloader__bar span{ display:block; height:100%; width:0%;
+  background:linear-gradient(90deg,var(--aura-a),var(--aura-b),var(--gold)); transition:width .25s var(--ease); }
+.preloader__pct{ font-size:.88rem; color:var(--dim); }
+
+/* ============================================================
+   HUD TOP
+   ============================================================ */
+.hud-top{
+  position:fixed; top:0; inset-inline:0; z-index:40;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:14px 18px;
+  background:linear-gradient(to bottom, rgba(5,8,16,.55), transparent);
+  pointer-events:none;
+}
+.hud-top > *{ pointer-events:auto; }
+.hud-back{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-size:.92rem; font-weight:600; color:var(--cream);
+  padding:.55em 1.1em; border-radius:999px;
+  border:1px solid rgba(255,255,255,.18); background:rgba(10,14,26,.5);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  transition:border-color .25s, background .25s;
+}
+.hud-back:hover{ border-color:rgba(255,255,255,.45); background:rgba(10,14,26,.72); }
+.hud-brand{
+  display:flex; align-items:center; gap:9px; font-size:.95rem; color:var(--cream);
+  font-family:"Space Grotesk","Heebo",sans-serif; letter-spacing:.01em;
+}
+.hud-brand b{ font-weight:700; }
+.hud-brand__orb{
+  width:26px; height:26px; border-radius:50%;
+  background:conic-gradient(from 210deg,var(--aura-a),var(--aura-b),var(--aura-c),var(--aura-a));
+  filter:drop-shadow(0 0 12px rgba(200,107,255,.5));
+}
+
+/* ============================================================
+   GREETING CHIP (projected above the hostess)
+   ============================================================ */
+.chip{
+  position:fixed; z-index:30; transform:translate(-50%,-100%);
+  padding:.6em 1.2em; border-radius:999px; white-space:nowrap;
+  font-size:.95rem; font-weight:600; color:#fff;
+  background:rgba(12,16,30,.62); border:1px solid rgba(255,180,92,.4);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 12px 34px -14px rgba(0,0,0,.8), 0 0 24px -8px rgba(255,180,92,.35);
+  pointer-events:none;
+  transition:opacity .5s var(--ease);
+}
+.chip.fade{ opacity:0; }
+
+/* ============================================================
+   ENTER BUTTON + COUNTDOWN
+   ============================================================ */
+.enter{
+  position:fixed; bottom:max(4.5vh, 30px); left:50%; transform:translateX(-50%);
+  z-index:40; display:flex; flex-direction:column; align-items:center; gap:12px;
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+}
+.enter.leave{ opacity:0; transform:translateX(-50%) translateY(16px); pointer-events:none; }
+.enter__choices{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.enter__btn{
+  display:inline-flex; align-items:center; gap:12px;
+  font:inherit; font-weight:800; font-size:1.1rem; cursor:pointer;
+  padding:.8em 1.5em .8em 1.05em; border:0; border-radius:999px;
+  transition:transform .25s var(--ease), box-shadow .25s, background .25s, border-color .25s;
+}
+.enter__btn--primary{
+  color:#0A0A14; background:linear-gradient(100deg,#FFD9A0,var(--gold) 55%,#E89A3C);
+  box-shadow:0 18px 55px -16px rgba(255,180,92,.75), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.enter__btn--primary:hover{ transform:translateY(-3px); box-shadow:0 26px 65px -18px rgba(255,180,92,.9), inset 0 1px 0 rgba(255,255,255,.5); }
+.enter__btn--ghost{
+  color:var(--cream); background:rgba(10,14,26,.6); border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.enter__btn--ghost:hover{ transform:translateY(-3px); border-color:rgba(255,255,255,.45); background:rgba(10,14,26,.78); }
+.enter__btn:active{ transform:translateY(-1px); }
+.enter__ring{ width:42px; height:42px; transform:rotate(-90deg); flex:none; }
+.enter__ring-bg{ fill:none; stroke:rgba(10,10,20,.22); stroke-width:4; }
+.enter__ring-fill{
+  fill:none; stroke:#0A0A14; stroke-width:4; stroke-linecap:round;
+  stroke-dasharray:131.9; stroke-dashoffset:131.9;
+}
+.enter__hint{ font-size:.86rem; color:var(--dim); text-shadow:0 2px 10px rgba(0,0,0,.8); }
+.enter__hint span{ color:var(--cream); font-weight:700; }
+
+/* ============================================================
+   MOVEMENT D-PAD
+   ============================================================ */
+.dpad{
+  position:fixed; bottom:max(4vh, 22px); left:20px; z-index:40;
+  display:grid; grid-template-columns:repeat(3, 46px); grid-template-rows:repeat(3, 46px);
+  gap:6px; touch-action:none;
+}
+.dpad__btn{
+  display:grid; place-items:center; padding:0; cursor:pointer; color:var(--cream);
+  border:1px solid rgba(255,255,255,.18); border-radius:14px;
+  background:rgba(12,16,30,.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 8px 24px -12px rgba(0,0,0,.7);
+  transition:background .15s, border-color .15s, transform .1s;
+}
+.dpad__btn svg{ width:24px; height:24px; }
+.dpad__btn:hover{ border-color:rgba(255,180,92,.5); }
+.dpad__btn.active, .dpad__btn:active{ background:rgba(255,180,92,.85); color:#0A0A14; transform:scale(.94); }
+.dpad__up{ grid-area:1 / 2; } .dpad__left{ grid-area:2 / 1; }
+.dpad__right{ grid-area:2 / 3; } .dpad__down{ grid-area:3 / 2; }
+
+/* ============================================================
+   CENTRAL-SCREEN CAROUSEL CONTROLS
+   ============================================================ */
+.screenctl{
+  position:fixed; bottom:max(4vh, 22px); left:50%; transform:translateX(-50%); z-index:40;
+  display:flex; align-items:center; gap:10px;
+}
+.screenctl__arrow{
+  width:48px; height:48px; flex:none; display:grid; place-items:center; cursor:pointer; color:var(--cream);
+  border:1px solid rgba(255,255,255,.18); border-radius:50%;
+  background:rgba(12,16,30,.62); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  transition:background .2s, border-color .2s, transform .2s;
+}
+.screenctl__arrow svg{ width:22px; height:22px; }
+.screenctl__arrow:hover{ border-color:rgba(255,180,92,.6); transform:translateY(-2px); }
+.screenctl__enter{
+  display:flex; flex-direction:column; align-items:center; gap:1px; cursor:pointer;
+  min-width:180px; padding:.6em 1.4em; border:0; border-radius:16px; color:#0A0A14;
+  background:linear-gradient(100deg,#FFD9A0,var(--gold) 55%,#E89A3C);
+  box-shadow:0 14px 40px -14px rgba(255,180,92,.7);
+  transition:transform .2s, box-shadow .2s;
+}
+.screenctl__enter:hover{ transform:translateY(-2px); box-shadow:0 20px 50px -16px rgba(255,180,92,.85); }
+#scName{ font-weight:800; font-size:1.02rem; }
+.screenctl__go{ font-size:.72rem; font-weight:600; opacity:.72; }
+
+/* ============================================================
+   POST-ARRIVAL HINT + TOOLTIP
+   ============================================================ */
+.hint{
+  position:fixed; bottom:max(4vh, 26px); left:50%; transform:translateX(-50%);
+  z-index:30; display:inline-flex; align-items:center; gap:.6em; white-space:nowrap;
+  font-size:.92rem; font-weight:500; color:var(--cream);
+  padding:.65em 1.3em; border-radius:999px;
+  background:rgba(12,16,30,.55); border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  transition:opacity .6s var(--ease);
+  pointer-events:none;
+}
+.hint.fade{ opacity:0; }
+
+.tip{
+  position:fixed; z-index:35; transform:translate(-50%,-130%);
+  padding:.5em 1.05em; border-radius:12px; white-space:nowrap;
+  font-size:.92rem; font-weight:700; color:#fff;
+  background:rgba(12,16,30,.78); border:1px solid rgba(255,180,92,.5);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  pointer-events:none;
+}
+.tip small{ display:block; font-weight:400; font-size:.78rem; color:var(--dim); }
+
+/* ============================================================
+   SR-ONLY KEYBOARD NAV
+   ============================================================ */
+.sr-nav{ position:fixed; z-index:41; top:64px; inset-inline-start:14px; display:flex; flex-direction:column; gap:4px; }
+.sr-nav a{
+  position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
+}
+.sr-nav a:focus-visible{
+  position:static; width:auto; height:auto; clip:auto; overflow:visible;
+  padding:.5em 1em; border-radius:10px; font-weight:600; font-size:.9rem;
+  background:rgba(12,16,30,.85); border:1px solid rgba(255,180,92,.5); color:#fff;
+}
+
+/* ============================================================
+   FALLBACK (no WebGL2)
+   ============================================================ */
+.fallback{
+  position:fixed; inset:0; z-index:60; overflow:auto;
+  background:radial-gradient(120% 120% at 50% 0%, #121a30 0%, #070b14 70%);
+  padding:60px 22px; text-align:center;
+}
+.fallback h1{ font-size:2.2rem; font-weight:900; }
+.fallback p{ color:var(--dim); margin-top:10px; }
+.fallback__grid{
+  max-width:900px; margin:34px auto 0;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px;
+}
+.fallback__grid a{
+  display:block; border-radius:16px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04);
+  transition:transform .3s var(--ease), border-color .3s;
+}
+.fallback__grid a:hover{ transform:translateY(-4px); border-color:rgba(255,180,92,.5); }
+.fallback__grid img{ width:100%; aspect-ratio:16/10; object-fit:cover; display:block; }
+.fallback__grid span{ display:block; padding:12px; font-weight:700; }
+.fallback__home{
+  display:inline-block; margin-top:34px; padding:.8em 1.8em; border-radius:999px;
+  font-weight:700; color:#0A0A14; background:linear-gradient(100deg,#AEBBFF,#C86BFF);
+}
+
+/* ============================================================
+   RESPONSIVE + MOTION
+   ============================================================ */
+@media (max-width:640px){
+  .hud-brand span{ display:none; }
+  .enter__btn{ font-size:1rem; padding:.72em 1.15em; }
+  .hint{ font-size:.8rem; max-width:92vw; white-space:normal; text-align:center; bottom:calc(4vh + 160px); }
+  .dpad{ grid-template-columns:repeat(3, 52px); grid-template-rows:repeat(3, 52px); left:14px; bottom:16px; }
+  .screenctl{ bottom:16px; gap:8px; }
+  .screenctl__arrow{ width:44px; height:44px; }
+  .screenctl__enter{ min-width:0; padding:.55em 1em; }
+  #scName{ font-size:.9rem; }
+}
+@media (prefers-reduced-motion:reduce){
+  .preloader__orb{ animation:none; }
+}

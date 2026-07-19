@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>אולם התצוגה · WiseWheel Automate</title>
+<meta name="description" content="אולם התצוגה התלת-ממדי של WiseWheel Automate — היכנסו לביתן, עקבו אחרי המארחת, ובחרו מסך כדי לצלול לכל אחד מ-7 המותגים החיים שלנו." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237C8CFF'/><stop offset='.5' stop-color='%23C86BFF'/><stop offset='1' stop-color='%23FF8FB0'/></linearGradient></defs><circle cx='32' cy='32' r='26' fill='none' stroke='url(%23g)' stroke-width='6'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ 3D CANVAS ============ -->
+  <canvas id="stage" aria-label="אולם תצוגה תלת-ממדי — 7 מסכים אינטראקטיביים של דפי נחיתה"></canvas>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <span class="preloader__orb" aria-hidden="true"></span>
+      <div class="preloader__word">אולם התצוגה</div>
+      <div class="preloader__bar"><span id="pFill"></span></div>
+      <div class="preloader__pct"><span id="pPct">0</span>% · מדליקים את האורות</div>
+    </div>
+  </div>
+
+  <!-- ============ HUD ============ -->
+  <header class="hud-top" id="hudTop">
+    <a href="../index.html" class="hud-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M11 6l-6 6 6 6"/></svg>
+      חזרה לדף הבית
+    </a>
+    <div class="hud-brand">
+      <span class="hud-brand__orb" aria-hidden="true"></span>
+      <span><b>WiseWheel</b> Automate</span>
+    </div>
+  </header>
+
+  <!-- greeting chip above the hostess -->
+  <div class="chip" id="chip" hidden>ברוכים הבאים לאולם התצוגה</div>
+
+  <!-- opening: two ways in -->
+  <div class="enter" id="enterWrap" hidden>
+    <div class="enter__choices">
+      <button class="enter__btn enter__btn--primary" id="enterAuto">
+        <svg class="enter__ring" viewBox="0 0 48 48" aria-hidden="true">
+          <circle class="enter__ring-bg" cx="24" cy="24" r="21" />
+          <circle class="enter__ring-fill" id="ringFill" cx="24" cy="24" r="21" />
+        </svg>
+        <span class="enter__label">קחו אותי לאולם</span>
+      </button>
+      <button class="enter__btn enter__btn--ghost" id="enterManual">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4a2 2 0 1 0 0-.01M8.5 21l1.5-5 2-1.5-1-4-3 2-1 3M14 21l-1-6 2-3 3 2"/></svg>
+        <span class="enter__label">אני אלך לבד</span>
+      </button>
+    </div>
+    <div class="enter__hint">נכנסים אוטומטית בעוד <span id="cd">5</span>…</div>
+  </div>
+
+  <!-- movement D-pad (touch) -->
+  <div class="dpad" id="dpad" hidden aria-label="הזזת הדמות">
+    <button class="dpad__btn dpad__up"    data-dir="f" aria-label="קדימה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
+    <button class="dpad__btn dpad__left"  data-dir="l" aria-label="שמאלה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+    <button class="dpad__btn dpad__right" data-dir="r" aria-label="ימינה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+    <button class="dpad__btn dpad__down"  data-dir="b" aria-label="אחורה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+
+  <!-- on-screen carousel controls for the central screen -->
+  <div class="screenctl" id="screenCtl" hidden>
+    <button class="screenctl__arrow" id="scPrev" aria-label="האתר הקודם"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+    <button class="screenctl__enter" id="scEnter"><span id="scName">WISE Champagne</span><span class="screenctl__go">כניסה לאתר ←</span></button>
+    <button class="screenctl__arrow" id="scNext" aria-label="האתר הבא"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+  </div>
+
+  <!-- post-arrival hint -->
+  <div class="hint" id="hint" hidden>
+    <span id="hintText">גררו כדי להסתכל · הזיזו את הדמות עם החצים · לחצו על מסך כדי להיכנס</span>
+  </div>
+
+  <!-- hover tooltip for screens -->
+  <div class="tip" id="tip" hidden></div>
+
+  <!-- a11y keyboard navigation (visually hidden, Tab-reachable) -->
+  <nav class="sr-nav" id="srNav" aria-label="קיצורי מקלדת למסכי האולם"></nav>
+
+  <!-- ============ NO-WEBGL FALLBACK ============ -->
+  <div class="fallback" id="fallback" hidden>
+    <h1>אולם התצוגה</h1>
+    <p>הדפדפן שלכם לא תומך ב-WebGL2 — הנה כל המותגים שלנו:</p>
+    <div class="fallback__grid" id="fallbackGrid"></div>
+    <a class="fallback__home" href="../index.html">חזרה לדף הבית</a>
+  </div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

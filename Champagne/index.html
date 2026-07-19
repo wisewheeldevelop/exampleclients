@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>WISE Champagne · שמפניה גראנד קרו</title>
+<meta name="description" content="WISE Champagne — בית שמפניה בוטיק. נמזגת לאט, נחגגת מהר. קולקציית גראנד קרו: ברוט, רוזה ופרסטיז' קוּוֶה. הצטרפו למועדון הפרטי." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231B1710'/><path d='M22 14h20v4c0 8-3 12-8 14v14h6v4H24v-4h6V32c-5-2-8-6-8-14Z' fill='none' stroke='%23C9A961' stroke-width='2.6'/></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__mark">W</div>
+      <div class="preloader__word">WISE <span>CHAMPAGNE</span></div>
+      <div class="preloader__bar"><span id="pFill"></span></div>
+      <div class="preloader__pct"><span id="pPct">0</span>% · מצננים את הבקבוק</div>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__wrap">
+      <a href="#top" class="nav__brand" aria-label="WISE Champagne — לראש העמוד">
+        <span class="nav__mark" aria-hidden="true">W</span>
+        <span class="nav__word">WISE <em>CHAMPAGNE</em></span>
+      </a>
+      <nav class="nav__links" aria-label="ניווט ראשי">
+        <a href="#collection">הקולקציה</a>
+        <a href="#maison">הבית</a>
+        <a href="#moments">רגעים</a>
+        <a href="#club">המועדון</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="#club" class="btn btn--sm nav__cta">הזמנה פרטית</a>
+        <button id="navToggle" class="nav__toggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="navMobile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="#collection">הקולקציה</a>
+      <a href="#maison">הבית</a>
+      <a href="#moments">רגעים</a>
+      <a href="#club">המועדון</a>
+      <a href="#club" class="btn btn--sm">הזמנה פרטית</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO — SCROLL SEQUENCE ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__sticky">
+        <canvas class="hero__canvas" id="sequence"></canvas>
+        <div class="hero__vignette"></div>
+
+        <div class="cap" data-cap="0">
+          <div class="cap__eyebrow">Maison de Champagne · Est. 1998</div>
+          <h1 class="cap__brand">WISE</h1>
+          <div class="cap__brandsub">CHAMPAGNE</div>
+          <p class="cap__sub">שמפניה שנמזגת לאט — לרגעים שנשארים.</p>
+          <div class="cap__scroll">
+            <span>גללו למזיגה</span>
+            <svg class="cap__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+
+        <div class="cap cap--split" data-cap="1">
+          <h2 class="cap__big">נמזגת לאט.<br><em>נחגגת מהר.</em></h2>
+          <p class="cap__note">ענבי גראנד קרו מהכרמים הטובים של שאמפאן, נבצרים ביד ומיושנים 36 חודשים במרתפי גיר.</p>
+        </div>
+
+        <div class="cap cap--split cap--right" data-cap="2">
+          <h2 class="cap__big">אלף בועות.<br><em>רגע אחד.</em></h2>
+          <p class="cap__note">פרל עדין שעולה בשורה ישרה — סימן ההיכר של תסיסה שנייה איטית ומדויקת בבקבוק.</p>
+        </div>
+
+        <div class="cap cap--center" data-cap="3">
+          <h2 class="cap__big cap__big--center">הרגע שלכם <em>מחכה.</em></h2>
+          <p class="cap__note cap__note--center">ברוט · רוזה · פרסטיז׳ קוּוֶה</p>
+          <a href="#collection" class="btn btn--lg">לגלות את הקולקציה</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement reveal">
+      <p>שמפניה גדולה לא ממהרת לאף אחד.<br>
+      <span class="hl">היא מחכה בדיוק לרגע הנכון</span> — ואז הופכת אותו לבלתי נשכח.</p>
+    </section>
+
+    <!-- ============ COLLECTION ============ -->
+    <section class="collection" id="collection">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">La Collection</span>
+        <h2 class="section-head__title">שלוש קוּוֶה. חתימה אחת.</h2>
+        <p class="section-head__lead">כל בקבוק נבצר, מותסס ומיושן תחת עינו של שף־הקאב שלנו.</p>
+      </div>
+
+      <figure class="collection__banner reveal">
+        <img src="img/collection.jpg" alt="קולקציית WISE Champagne — ברוט, רוזה ופרסטיז' קוּוֶה על שיש" loading="lazy" />
+      </figure>
+
+      <div class="collection__grid">
+        <article class="cuvee reveal">
+          <span class="cuvee__num">01</span>
+          <h3>Brut <em>Grand Cru</em></h3>
+          <p class="cuvee__desc">היובש המדויק. תפוח ירוק, בריוש וגיר — הקלאסיקה של הבית.</p>
+          <div class="cuvee__row"><span class="cuvee__price">₪240</span><span class="cuvee__meta">36 חודשי התיישנות</span></div>
+          <a href="#club" class="cuvee__link">להזמנה<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M13 6l-8 6 8 6"/></svg></a>
+        </article>
+
+        <article class="cuvee cuvee--featured reveal rd1">
+          <span class="cuvee__badge">הנמכרת ביותר</span>
+          <span class="cuvee__num">02</span>
+          <h3>Rosé <em>Grand Cru</em></h3>
+          <p class="cuvee__desc">ורוד חיוור, פירות אדומים חיים וסיומת ארוכה — הרוזה שמגישים באירועים הגדולים.</p>
+          <div class="cuvee__row"><span class="cuvee__price">₪290</span><span class="cuvee__meta">42 חודשי התיישנות</span></div>
+          <a href="#club" class="cuvee__link">להזמנה<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M13 6l-8 6 8 6"/></svg></a>
+        </article>
+
+        <article class="cuvee reveal rd2">
+          <span class="cuvee__num">03</span>
+          <h3>Prestige <em>Cuvée</em></h3>
+          <p class="cuvee__desc">הבציר הנבחר. מהדורה ממוספרת בארגז עץ — לרגעים שקורים פעם בחיים.</p>
+          <div class="cuvee__row"><span class="cuvee__price">₪420</span><span class="cuvee__meta">60 חודשי התיישנות</span></div>
+          <a href="#club" class="cuvee__link">להזמנה<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M13 6l-8 6 8 6"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MAISON ============ -->
+    <section class="maison" id="maison">
+      <div class="maison__grid">
+        <div class="maison__text reveal">
+          <span class="section-head__eyebrow">La Maison</span>
+          <h2>בוטיק אחד.<br>סטנדרט אחד.</h2>
+          <p>מאחורי דלת שחורה עם שלט זהב ברחוב שקט, נמצא חדר הטעימות שלנו — שיש, קטיפה ושקט. כאן כל לקוח טועם, בוחר, ומקבל בקבוק שנפתח בדיוק בזמן הנכון.</p>
+          <div class="maison__stats">
+            <div class="reveal"><strong data-count="25">0</strong><span>שנות מומחיות</span></div>
+            <div class="reveal rd1"><strong data-count="96" data-suffix="+">0</strong><span>ניקוד טעימה ממוצע</span></div>
+            <div class="reveal rd2"><strong data-count="60">0</strong><span>חודשי התיישנות</span></div>
+          </div>
+          <a href="#club" class="btn">לתאם טעימה פרטית</a>
+        </div>
+        <div class="maison__imgs">
+          <figure class="reveal"><img src="img/boutique.jpg" alt="חזית הבוטיק של WISE Champagne" loading="lazy" /></figure>
+          <figure class="reveal rd1"><img src="img/lounge.jpg" alt="חדר הטעימות של הבית" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MOMENTS ============ -->
+    <section class="moments" id="moments">
+      <div class="section-head reveal">
+        <span class="section-head__eyebrow">Les Moments</span>
+        <h2 class="section-head__title">רגעים שנמזגו נכון</h2>
+      </div>
+      <div class="moments__grid">
+        <figure class="reveal m-tall"><img src="img/hero-still.jpg" alt="בקבוק WISE Champagne וכוס על שיש" loading="lazy" /></figure>
+        <figure class="reveal rd1"><img src="img/garden-pour.jpg" alt="מזיגת שמפניה באירוח גן" loading="lazy" /></figure>
+        <figure class="reveal rd2"><img src="img/toast.jpg" alt="הרמת כוסית בערב חגיגי" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <!-- ============ CLUB ============ -->
+    <section class="club" id="club">
+      <div class="club__card reveal">
+        <span class="section-head__eyebrow">Le Club</span>
+        <h2>המועדון הפרטי</h2>
+        <p>חברי המועדון מקבלים גישה מוקדמת לבצירים, משלוח קר עד הבית והזמנה לטעימות הבית — לפני כולם.</p>
+        <form class="club__form" id="clubForm">
+          <input required placeholder="שם מלא" aria-label="שם מלא" />
+          <input required type="tel" placeholder="טלפון" aria-label="טלפון" />
+          <select aria-label="בחירת קוּוֶה">
+            <option>Brut Grand Cru · ₪240</option>
+            <option>Rosé Grand Cru · ₪290</option>
+            <option>Prestige Cuvée · ₪420</option>
+            <option>מארז טעימות · שלושת הבקבוקים</option>
+          </select>
+          <button class="btn btn--lg" type="submit">הצטרפו למועדון</button>
+          <p id="formOk" class="club__ok" hidden>תודה! נחזור אליכם עם הזמנה אישית לטעימה.</p>
+        </form>
+        <div class="club__alt">או ישירות: <a href="tel:0500000000">050-000-0000</a> · <a href="https://wa.me/972500000000">וואטסאפ</a></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__wrap">
+      <div class="footer__brand"><span class="nav__mark" aria-hidden="true">W</span><span class="nav__word">WISE <em>CHAMPAGNE</em></span></div>
+      <p class="footer__tag">בית שמפניה בוטיק · גראנד קרו בלבד</p>
+      <div class="footer__links">
+        <a href="#collection">הקולקציה</a>
+        <a href="#maison">הבית</a>
+        <a href="#moments">רגעים</a>
+        <a href="#club">המועדון</a>
+      </div>
+      <div class="footer__legal">© 2026 WISE Champagne. כל הזכויות שמורות. · שתו באחריות.</div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+<!-- ===== WiseWheel return dock ===== -->
+<div class="ww-dock" dir="rtl" aria-label="ניווט WiseWheel">
+  <a href="../lobby/index.html" class="ww-dock__btn ww-dock__btn--lobby">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>אולם 3D
+  </a>
+  <a href="../index.html" class="ww-dock__btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>בית
+  </a>
+</div>
+<style>
+  .ww-dock{position:fixed;bottom:16px;left:16px;z-index:200;display:flex;gap:8px;font-family:'Heebo',system-ui,sans-serif}
+  .ww-dock__btn{display:inline-flex;align-items:center;gap:.4em;padding:.52em 1em;border-radius:999px;font-size:.85rem;font-weight:700;color:#EDEFF7;background:rgba(10,12,20,.72);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px -12px rgba(0,0,0,.7);text-decoration:none;cursor:pointer;transition:transform .25s,border-color .25s,background .25s,filter .25s}
+  .ww-dock__btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.4);background:rgba(10,12,20,.86)}
+  .ww-dock__btn--lobby{color:#0A0A14;background:linear-gradient(100deg,#FFD9A0,#FFB45C 55%,#E89A3C);border-color:transparent}
+  .ww-dock__btn--lobby:hover{filter:brightness(1.06)}
+  @media (max-width:640px){.ww-dock{bottom:12px;left:12px;gap:6px}.ww-dock__btn{font-size:.78rem;padding:.48em .85em}}
+  @media print{.ww-dock{display:none}}
+</style>
+</body>
+</html>

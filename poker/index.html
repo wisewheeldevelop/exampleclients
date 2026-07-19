@@ -596,5 +596,23 @@ f?.addEventListener('submit', (e)=>{
   document.getElementById('formOk').classList.remove('hidden');
 });
 </script>
+<!-- ===== WiseWheel return dock ===== -->
+<div class="ww-dock" dir="rtl" aria-label="ניווט WiseWheel">
+  <a href="../lobby/index.html" class="ww-dock__btn ww-dock__btn--lobby">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg>אולם 3D
+  </a>
+  <a href="../index.html" class="ww-dock__btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>בית
+  </a>
+</div>
+<style>
+  .ww-dock{position:fixed;bottom:16px;left:16px;z-index:200;display:flex;gap:8px;font-family:'Heebo',system-ui,sans-serif}
+  .ww-dock__btn{display:inline-flex;align-items:center;gap:.4em;padding:.52em 1em;border-radius:999px;font-size:.85rem;font-weight:700;color:#EDEFF7;background:rgba(10,12,20,.72);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px -12px rgba(0,0,0,.7);text-decoration:none;cursor:pointer;transition:transform .25s,border-color .25s,background .25s,filter .25s}
+  .ww-dock__btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.4);background:rgba(10,12,20,.86)}
+  .ww-dock__btn--lobby{color:#0A0A14;background:linear-gradient(100deg,#FFD9A0,#FFB45C 55%,#E89A3C);border-color:transparent}
+  .ww-dock__btn--lobby:hover{filter:brightness(1.06)}
+  @media (max-width:640px){.ww-dock{bottom:12px;left:12px;gap:6px}.ww-dock__btn{font-size:.78rem;padding:.48em .85em}}
+  @media print{.ww-dock{display:none}}
+</style>
 </body>
 </html>
