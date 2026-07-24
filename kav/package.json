@@ -1,0 +1,18 @@
+{
+  "name": "kav-premium-mobility",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/tailwind.css -o ./css/tailwind.css --minify",
+    "audit:visual": "node ./scripts/visual-audit.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "axe-core": "^4.12.1",
+    "puppeteer-core": "^25.3.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}

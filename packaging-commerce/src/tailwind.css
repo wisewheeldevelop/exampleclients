@@ -1,0 +1,14 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --font-sans: "Assistant", system-ui, sans-serif;
+  --font-display: "Assistant", system-ui, sans-serif;
+  --font-mono: "Manrope", system-ui, sans-serif;
+  --color-porcelain: #fbf9f4;
+  --color-paper: #f0e7d8;
+  --color-ink: #18302d;
+  --color-terracotta: #e26445;
+  --color-cobalt: #2555d9;
+  --color-pistachio: #b6c66b;
+  --color-sky: #dceeff;
+}

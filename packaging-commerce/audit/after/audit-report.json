@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-23T06:31:37.156Z",
+  "viewports": [
+    "1440x1050",
+    "390x844"
+  ],
+  "checks": {
+    "initialProductCount": 8,
+    "categoryImagesLoaded": 6,
+    "categoryJumpProductCount": 1,
+    "filterProductCount": 1,
+    "filteredImageVisible": true,
+    "quickViewOpened": true,
+    "cartCount": "1",
+    "mobileMenuOpened": true
+  },
+  "accessibility": {
+    "violations": [],
+    "passes": 27,
+    "incomplete": 1
+  },
+  "performance": {
+    "domNodes": 481,
+    "resourceCount": 6,
+    "decodedBodyBytes": 93838,
+    "loadMs": 92
+  },
+  "consoleErrors": []
+}

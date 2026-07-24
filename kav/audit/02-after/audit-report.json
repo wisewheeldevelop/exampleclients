@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-22T23:22:09.893Z",
+  "viewports": [
+    "1440x1100",
+    "390x844"
+  ],
+  "checks": {
+    "initialProductCount": 4,
+    "filterProductCount": 2,
+    "quickViewOpened": true,
+    "mobileMenuOpened": true
+  },
+  "accessibility": {
+    "violations": [],
+    "passes": 28,
+    "incomplete": 2
+  },
+  "performance": {
+    "domNodes": 486,
+    "resourceCount": 2,
+    "transferBytes": 2346,
+    "decodedBodyBytes": 28762,
+    "loadMs": 312
+  },
+  "consoleErrors": []
+}

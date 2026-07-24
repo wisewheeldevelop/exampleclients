@@ -1,0 +1,12 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --color-ink: #101311;
+  --color-paper: #f1f0ea;
+  --color-signal: #d8ff36;
+  --color-cobalt: #4e63ff;
+  --color-fog: #d8dad3;
+  --font-sans: "Assistant", sans-serif;
+  --font-mono: "Manrope", sans-serif;
+  --container-site: 90rem;
+}

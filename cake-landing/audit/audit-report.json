@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-07-23T10:50:22.259Z",
+  "viewports": [
+    "1440x1000",
+    "390x844"
+  ],
+  "checks": {
+    "initialImagesLoaded": 7,
+    "allImagesLoaded": {
+      "total": 8,
+      "loaded": 8
+    },
+    "selectedFlavor": "וניל–פטל",
+    "faqOpened": true,
+    "galleryDialogOpened": true,
+    "mobileMenuOpened": true
+  },
+  "accessibility": {
+    "violations": [],
+    "passes": 30,
+    "incomplete": 2
+  },
+  "consoleErrors": []
+}

@@ -208,6 +208,44 @@ a{ color:inherit; text-decoration:none; cursor:pointer; }
 .tip small{ display:block; font-weight:400; font-size:.78rem; color:var(--dim); }
 
 /* ============================================================
+   PROXIMITY FIREPLACE SWITCH
+   ============================================================ */
+.fire-switch{
+  position:fixed; right:20px; bottom:22px; z-index:42;
+  display:flex; align-items:center; gap:12px; min-width:220px;
+  padding:10px 12px 10px 14px; color:#fff; cursor:pointer; text-align:right;
+  border:1px solid rgba(255,170,82,.42); border-radius:18px;
+  background:linear-gradient(125deg,rgba(33,20,15,.86),rgba(12,14,21,.82));
+  box-shadow:0 18px 50px -20px rgba(255,102,24,.72),inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(18px) saturate(1.25); -webkit-backdrop-filter:blur(18px) saturate(1.25);
+  animation:fire-arrive .5s var(--ease-out) both;
+}
+@keyframes fire-arrive{ from{ opacity:0; transform:translateY(12px) scale(.96); } }
+.fire-switch__icon{
+  width:40px; height:40px; flex:none; display:grid; place-items:center; border-radius:13px;
+  color:#fff3d2; background:radial-gradient(circle at 50% 70%,#ffbd4b,#ef5a1d 64%,#7f2514);
+  box-shadow:0 0 22px rgba(255,103,31,.5);
+}
+.fire-switch__icon svg{ width:25px; height:25px; }
+.fire-switch__copy{ display:flex; flex-direction:column; flex:1; line-height:1.15; }
+.fire-switch__copy b{ font:800 .9rem/1.2 "Heebo",sans-serif; }
+.fire-switch__copy small{ margin-top:3px; color:#d9c5b6; font:500 .69rem/1.25 "Heebo",sans-serif; }
+.fire-switch__toggle{
+  width:38px; height:22px; flex:none; padding:3px; border-radius:99px;
+  background:#ef762b; box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+  transition:background .25s;
+}
+.fire-switch__toggle i{
+  display:block; width:16px; height:16px; border-radius:50%; background:#fff;
+  transform:translateX(0); transition:transform .28s var(--ease-out);
+  box-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+.fire-switch.is-off{ border-color:rgba(255,255,255,.17); box-shadow:0 16px 42px -22px rgba(0,0,0,.8); }
+.fire-switch.is-off .fire-switch__icon{ color:#a8adba; background:#262a33; box-shadow:none; }
+.fire-switch.is-off .fire-switch__toggle{ background:#525866; }
+.fire-switch.is-off .fire-switch__toggle i{ transform:translateX(16px); }
+
+/* ============================================================
    SR-ONLY KEYBOARD NAV
    ============================================================ */
 .sr-nav{ position:fixed; z-index:41; top:64px; inset-inline-start:14px; display:flex; flex-direction:column; gap:4px; }
@@ -252,13 +290,26 @@ a{ color:inherit; text-decoration:none; cursor:pointer; }
    ============================================================ */
 @media (max-width:640px){
   .hud-brand span{ display:none; }
+  .chip{ max-width:82vw; white-space:normal; text-align:center; font-size:.76rem; padding:.55em .9em; }
   .enter__btn{ font-size:1rem; padding:.72em 1.15em; }
-  .hint{ font-size:.8rem; max-width:92vw; white-space:normal; text-align:center; bottom:calc(4vh + 160px); }
-  .dpad{ grid-template-columns:repeat(3, 52px); grid-template-rows:repeat(3, 52px); left:14px; bottom:16px; }
-  .screenctl{ bottom:16px; gap:8px; }
-  .screenctl__arrow{ width:44px; height:44px; }
-  .screenctl__enter{ min-width:0; padding:.55em 1em; }
-  #scName{ font-size:.9rem; }
+  .hint{ font-size:.76rem; max-width:84vw; white-space:normal; text-align:center; bottom:auto; top:82px; padding:.55em 1em; }
+  .dpad{
+    grid-template-columns:repeat(3, 44px); grid-template-rows:repeat(3, 44px);
+    left:12px; bottom:82px; gap:5px;
+  }
+  .dpad__btn{ border-radius:12px; }
+  .screenctl{ top:auto; bottom:14px; gap:7px; }
+  .screenctl__arrow{ width:40px; height:40px; }
+  .screenctl__enter{ min-width:132px; padding:.46em .9em; border-radius:13px; }
+  #scName{ font-size:.86rem; }
+  .screenctl__go{ font-size:.66rem; }
+  .fire-switch{ right:10px; bottom:82px; min-width:0; padding:8px; border-radius:15px; }
+  .fire-switch__icon{ width:36px; height:36px; }
+  .fire-switch__copy small{ display:none; }
+  .fire-switch__copy b{ font-size:.78rem; }
+  .fire-switch__toggle{ width:34px; height:20px; padding:3px; }
+  .fire-switch__toggle i{ width:14px; height:14px; }
+  .fire-switch.is-off .fire-switch__toggle i{ transform:translateX(14px); }
 }
 @media (prefers-reduced-motion:reduce){
   .preloader__orb{ animation:none; }
